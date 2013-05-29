@@ -34,6 +34,6 @@ Development Principles
 
 Authors
 -------
-+ Martin Micunda
-+ Christopher Laughlin
++ [Martin Micunda](https://github.com/martinmicunda)
++ [Christopher Laughlin](https://github.com/chrislaughlin)
 
