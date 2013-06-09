@@ -2,7 +2,7 @@ body {
     color: #333333;
     font-size: 14px;
     line-height: 18px;
-    background: url("../img/bg_body.jpg") repeat fixed 100% 100%;
+    background: url("../../img/bg_body.jpg") repeat fixed 100% 100%;
 }
 h1{
     /*color: #58B84E;*/
@@ -65,7 +65,7 @@ a {
     text-align: justify;
 }
 #login{
-    background: url("../img/bg-login.png") repeat scroll 0 0 padding-box #1B1B1B;
+    background: url("../../img/bg-login.png") repeat scroll 0 0 padding-box #1B1B1B;
     border-radius: 5px;
     position: relative;
     float: left;
@@ -145,7 +145,7 @@ header {
     /*background-color: #252525;*/
     /*background-position: 0 0;*/
     /*background-image: url("../img/twitter_web_sprite_bgs.png");*/
-    background-image: url("../img/bg-login.png");
+    background-image: url("../../img/bg-login.png");
     /*background-repeat: repeat-x;*/
 }
 #topbar {
@@ -220,7 +220,7 @@ section{
     /*background-color: #58B84E;*/
     border: 1px solid #5E8D3D;
     color: #FFFFFF;
-    background: url("../img/overlay_gloss_28.png") repeat-x scroll left -3px #58B84E;
+    background: url("../../img/overlay_gloss_28.png") repeat-x scroll left -3px #58B84E;
 }
 .btn_tweet_wrapper:hover {
     background-color: #73A550;
@@ -263,7 +263,7 @@ a.name {
 #dashboard {
     width: 35%;
     float: left;
-    background: url("../img/bg-login.png") repeat scroll 0 0 padding-box #1B1B1B;
+    background: url("../../img/bg-login.png") repeat scroll 0 0 padding-box #1B1B1B;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0 6px 6px 0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -350,7 +350,7 @@ a.name {
     font-weight: bold;
 }
 .btn_tweet {
-    background: url("../img/tweet_icon.png") no-repeat transparent;
+    background: url("../../img/tweet_icon.png") no-repeat transparent;
     border: none;
 }
 .color_white {
