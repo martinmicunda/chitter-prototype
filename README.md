@@ -31,6 +31,10 @@ Development Principles
 + Chitter will be developed using freely available tools and frameworks (no Asidua licenses will be required)
 + Chitter will be developed using tools and frameworks that are not tied to a single platform (e.g. Windows)
 
+Run Application (Locally)
+----------------------
+From command line navigate to the application directory and run follow command 
++ grunt server (will automatically opens web browser)
 
 Authors
 -------
