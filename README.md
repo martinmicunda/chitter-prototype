@@ -31,10 +31,46 @@ Development Principles
 + Chitter will be developed using freely available tools and frameworks (no Asidua licenses will be required)
 + Chitter will be developed using tools and frameworks that are not tied to a single platform (e.g. Windows)
 
-Run Application (Locally)
+Installation
 ----------------------
-From command line navigate to the application directory and run follow command 
-+ grunt server (will automatically opens web browser)
+
+### Platform & tools
+
+You need to install Node.js and then the development tools. Node.js comes with a package manager called [npm](http://npmjs.org) for installing NodeJS applications and libraries.
+* [Install node.js](http://nodejs.org/download/) (requires node.js version >= 0.8.4)
+* [Install Yeoman](http://yeoman.io/) as global npm modules (requires node.js version >= 1.0):
+
+    ```
+    npm install -g yo grunt-cli bower
+    ```
+
+### Client App
+
+Our client application is a straight HTML/Javascript application but our development process uses a Node.js build tool
+[Grunt.js](gruntjs.com) and dependencies tool [Bower.js](http://bower.io/). Grunt and Bower relies upon some 3rd party libraries that we need to install as local dependencies.
+
+* Install local dependencies (navigate to chitter-prototype directory):
+
+    ```
+    cd client
+    npm install
+    bower install
+    ```
+
+(Note: If you are getting error with github try this "git config --global url."https://".insteadOf git://")
+
+Running
+----------------------
+
+### Start the Server
+* Run the server (the command will automatically opens web browser)
+
+    ```
+    grunt server   
+    ```
+
+(Note: If you don't have Ruby and Compass installed in your system PATH then run "grunt server --force")
+
 
 Authors
 -------
