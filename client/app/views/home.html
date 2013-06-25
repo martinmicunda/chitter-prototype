@@ -22,68 +22,32 @@
     <div id="timeline">
         <div class="header_inner">
             <h2>Tweets</h2>
-            <div class="btn_tweet_wrapper">
-                <button class="btn_tweet" type="button" />
+            <div class="btn_tweet_wrapper" ng-click="open()">
+                <!--<button class="btn_tweet" type="button" ng-click="open()" />-->
             </div>
             <!--<input id="edit-submit-presentations" class="form-submit" type="submit" value="Search" name="">-->
         </div>
         <ul>
-            <!--<li class="tweet_wrapper tweet_box_bg">-->
-            <!--<form method="POST">-->
-            <!--<textarea  class="tweet_box">-->
-            <!--dsa-->
-            <!--</textarea>-->
-            <!--<button>Tweet</button>-->
-            <!--</form>-->
+            <li class="tweet_wrapper" ng-class="{top_border: $first, last: $last}" ng-repeat="tweet in tweets">
+                <img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">
+                <div class="content">
+                    <a href="#" class="name">{{tweet.user.name}}</a> <span class="username">{{tweet.user.username}}</span>
+                    <p>{{tweet.text}}</p>
+                    <!-- TODO: need a filter to convert time to hours or minute -->
+                    <span class="time clear">{{tweet.date}}</span>
+                </div>
+            </li>
+
+
+            <!--<li class="tweet_wrapper top_border">-->
+                <!--<img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">-->
+                <!--<div class="content">-->
+                    <!--<a href="#" class="name">Kermit</a> <span class="username">@username</span>-->
+                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>-->
+                    <!--<span class="time clear">2h</span>-->
+                <!--</div>-->
             <!--</li>-->
-            <li class="tweet_wrapper top_border">
-                <img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">
-                <div class="content">
-                    <a href="#" class="name">Kermit</a> <span class="username">@username</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>
-                    <span class="time clear">2h</span>
-                </div>
-            </li>
-            <li class="tweet_wrapper">
-                <img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">
-                <div class="content">
-                    <a href="#" class="name">Kermit</a> <span class="username">@username</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>
-                    <span class="time clear">2h</span>
-                </div>
-            </li>
-            <li class="tweet_wrapper">
-                <img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">
-                <div class="content">
-                    <a href="#" class="name">Kermit</a> <span class="username">@username</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>
-                    <span class="time clear">2h</span>
-                </div>
-            </li>
-            <li class="tweet_wrapper">
-                <img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">
-                <div class="content">
-                    <a href="#" class="name">Kermit</a> <span class="username">@username</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>
-                    <span class="time clear">2h</span>
-                </div>
-            </li>
-            <li class="tweet_wrapper">
-                <img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">
-                <div class="content">
-                    <a href="#" class="name">Kermit</a> <span class="username">@username</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>
-                    <span class="time clear">2h</span>
-                </div>
-            </li>
-            <li class="tweet_wrapper last">
-                <img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">
-                <div class="content">
-                    <a href="#" class="name">Kermit</a> <span class="username">@username</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>
-                    <span class="time clear">2h</span>
-                </div>
-            </li>
+
         </ul>
     </div>
     <div id="dashboard">
@@ -107,3 +71,34 @@
     </div>
     <div class="clear"></div>
 </section>
+
+
+
+<div class="modal modal-content" modal="showModal">
+    <form method="POST" action="" novalidate>
+        <input type="hidden" ng-model="tweet.user.id" ng-init="tweet.user.id='507f1f77bcf86cd799439011'" value="507f1f77bcf86cd799439011">
+        <!--TODO: this information should be already on server as we are sending user_id-->
+        <input type="hidden" ng-model="tweet.user.name" ng-init="tweet.user.name='Martin'" value="Martin">
+        <input type="hidden" ng-model="tweet.user.username" ng-init="tweet.user.username='martinmicunda'" value="martinmicunda">
+        <input type="hidden" ng-model="tweet.date" ng-init="tweet.date='1m'" value="1m">
+        <!-------------------------------------------------------------------------------->
+        <button class="modal-close" type="button" ng-click="cancel()">
+            <span class="icon close-medium">
+                <span class="visuallyhidden">Close</span>
+            </span>
+        </button>
+        <div class="modal-header">
+            <h3>What's happening?</h3>
+        </div>
+        <div class="modal-body">
+
+        <textarea id="tweetMessage" class="modal-tweet-box" ng-model="tweet.text"></textarea>
+        <br />
+        <div class="modal-footer">
+            <!--<span class="tweet-counter">140</span>-->
+            <button class="button_green" ng-click="save(tweet)">Tweet</button>
+        </div>
+        </div>
+    </form>
+</div>
+

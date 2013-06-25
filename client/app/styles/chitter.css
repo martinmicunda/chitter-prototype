@@ -304,6 +304,209 @@ a.name {
 .box li a {
     text-decoration: none;
 }
+
+.modal-content {
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    position: relative;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  z-index: 1050;
+  width: 520px;
+  margin-left: -240px;
+  background-color: #ffffff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  *border: 1px solid #999;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  outline: none;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding-box;
+          background-clip: padding-box;
+}
+
+/*.modal.fade {*/
+  /*top: -25%;*/
+  /*-webkit-transition: opacity 0.3s linear, top 0.3s ease-out;*/
+     /*-moz-transition: opacity 0.3s linear, top 0.3s ease-out;*/
+       /*-o-transition: opacity 0.3s linear, top 0.3s ease-out;*/
+          /*transition: opacity 0.3s linear, top 0.3s ease-out;*/
+/*}*/
+
+/*.modal.fade.in {*/
+  /*top: 10%;*/
+/*}*/
+
+
+.modal-header {
+    background-color: #ECECEC;
+    background-image: -moz-linear-gradient(center top , #F5F5F5 0px, #ECECEC 100%);
+    background-repeat: repeat-x;
+    border-bottom: 1px solid #DDDDDD;
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 1px 0 #FFFFFF inset;
+    cursor: move;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.modal-header h3 {
+    color: #555555;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 0 #FFFFFF;
+    white-space: nowrap;
+    width: 75%;
+}
+
+.modal-header .close {
+  margin-top: 2px;
+}
+.modal-close {
+    border-left: 1px solid #DDDDDD;
+    border-radius: 0 6px 0 0;
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.5) inset;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-right: medium none;
+    border-top: medium none;
+    border-bottom: medium none;
+}
+.icon {
+   background-image: url("../images/twitter_web_sprite_icons.png");
+   background-repeat: no-repeat;
+   display: inline-block;
+   vertical-align: text-top;
+}
+.close-medium {
+    background-position: -60px -510px;
+    height: 12px;
+    width: 10px;
+}
+.visuallyhidden {
+    border: 0 none;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.modal-body {
+  position: relative;
+  max-height: 400px;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.modal-tweet-box {
+    -moz-box-sizing: border-box;
+    /*width: 100%;*/
+    overflow-y: auto;
+    word-wrap: break-word;
+    height: 80px;
+    padding: 8px;
+    text-shadow: none;
+    vertical-align: top;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    margin: 0;
+    outline: 0 none;
+}
+textarea:focus {
+    border: 1px solid #7EB800;
+    -webkit-box-shadow:0 0 6px #7EB800;
+     -moz-box-shadow:0 0 5px #7EB800;
+     box-shadow:0 0 5px #7EB800;
+}
+
+.modal-form {
+  margin-bottom: 0;
+}
+
+.modal-footer {
+    float: right;
+}
+
+.modal-footer:before,
+.modal-footer:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.modal-footer:after {
+  clear: both;
+}
+
+.modal-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+.tweet-counter {
+    background-color: transparent;
+    border: 0 none;
+    color: #999999;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 3px;
+    position: relative;
+    text-align: right;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    top: 7px;
+    vertical-align: top;
+    width: 35px;
+}
 /*-- END Home ================================================================ --*/
 
 /*-- Buttons ================================================================ --*/
