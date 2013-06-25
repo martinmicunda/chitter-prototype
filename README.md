@@ -55,6 +55,7 @@ Our client application is a straight HTML/Javascript application but our develop
     cd client
     npm install
     bower install
+    cd ..
     ```
 
 (Note: If you are getting error with github try this "git config --global url."https://".insteadOf git://")
@@ -66,6 +67,7 @@ Running
 * Run the server (the command will automatically opens web browser)
 
     ```
+    cd client
     grunt server   
     ```
 
