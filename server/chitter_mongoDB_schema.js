@@ -32,7 +32,7 @@ db.users.insert (
 			username: 'mmicunda',
 			email: 'martin.micunda@asidua.com',
 			password: 'mmicunda123',
-			avatar: ''
+			avatarPath: ''
 		},
 		{
 			_id: ObjectId("507f1f77bcf86cd799439012"),
@@ -40,7 +40,7 @@ db.users.insert (
 			username: 'claughlin',
 			email: 'christopher.laughlin@asidua.com',
 			password: 'claughlin123',
-			avatar: ''
+			avatarPath: ''
 		}	
 	]	
 )
@@ -58,7 +58,7 @@ db.tweets.insert (
 		},
 		{
 			user_id: ObjectId("507f1f77bcf86cd799439012"), 
-			date: ISODate("2012-07-20T13:15:37Z"),
+            creationDate: ISODate("2012-07-20T13:15:37Z"),
 			text: "Welcome Chris!",
 			tags: [ "mongoDB", "angulaJS"]
 		}	

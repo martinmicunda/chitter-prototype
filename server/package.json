@@ -1,0 +1,10 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "dependencies": {
+      "grunt": "~0.4.1",
+      "express": "3.x",
+      "mongoose": "*",
+      "open": "0.0.3"
+  }
+}
