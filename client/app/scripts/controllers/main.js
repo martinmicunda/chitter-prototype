@@ -1,15 +1,17 @@
 'use strict';
 
 angular.module('clientCore', ['ui.bootstrap'])
-    .controller('MainCtrl', function ($scope, TweetData) {
+    .controller('MainCtrl', function ($scope, $rootScope, $location, $http, UserService, TweetService, $log) {
+        $scope.users = UserService.getUser();
 
+        $scope.loginErrorMessage = false;
         // Modal Form
         $scope.open = function() {
             $scope.showModal = true;
         };
 
         $scope.save = function(tweet) {
-            TweetData.addTweet(tweet);
+            TweetService.addTweet(tweet);
             $scope.showModal = false;
          };
 
@@ -17,11 +19,69 @@ angular.module('clientCore', ['ui.bootstrap'])
           $scope.showModal = false;
         };
 
-        $scope.tweets = TweetData.getTweet();
+        $scope.tweets = TweetService.getTweet();
+
+        $scope.loginUser = function() {
+            var loggedIn = false;
+            var totalUsers = $scope.users.length;
+            var usernameTyped = $scope.email;
+            var passwwordTyped = $scope.password;
+
+            for( var i = 0; i < totalUsers; i++ ) {
+                if( $scope.users[i].email === usernameTyped && $scope.users[i].password === passwwordTyped) {
+                    loggedIn = true;
+                    break;
+                }
+            }
+
+            if( loggedIn === true ) {
+                $log.info("login successful");
+                $location.path("/home");
+            } else {
+                $scope.loginErrorMessage = true;
+                $log.info("username does not exist")
+            }
+        }
 
     })
 
-    .factory('TweetData', ['$rootScope', function ($rootScope) {
+    .factory('UserService', ['$rootScope', function($rootScope) {
+        var users = [
+            {
+                id: "507f1f77bcf86cd799439011",
+                name: 'Martin Micunda',
+                username: 'mmicunda',
+                email: 'martin.micunda@asidua.com',
+                password: 'mmicunda123',
+                avatar: ''
+            },
+            {
+                id: "507f1f77bcf86cd799439012",
+                name: 'Chris  Laughlin',
+                username: 'claughlin',
+                email: 'christopher.laughlin@asidua.com',
+                password: 'claughlin123',
+                avatar: ''
+            },
+            {
+                id: "507f1f77bcf86cd799419011",
+                name: 'chitter',
+                username: 'chitter',
+                email: 'chitter',
+                password: 'chitter123',
+                avatar: ''
+            }
+        ];
+
+        return {
+            getUser:function () {
+                return users;
+            }
+        }
+    }])
+
+
+    .factory('TweetService', ['$rootScope', function ($rootScope) {
         var tweets = 	[
         		{
                     id: "507f1f77bcf86cd799439012",
