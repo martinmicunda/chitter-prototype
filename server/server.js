@@ -8,7 +8,7 @@ var server = http.createServer(app);
 app.configure(function(){
     app.use(express.favicon());
     app.use(express.logger());
-    app.use(express.bodyParser());
+    app.use(express.bodyParser()); // used to parse JSON object given in the request body
     app.use(app.router);
     // set root application directory (from this directory will load index.html)
     app.use(express.static(config.server.distFolder));
@@ -21,16 +21,27 @@ app.configure(function(){
 var MONGOLAB_URI = 'mongodb://' + config.mongo.dbUser + ':' + config.mongo.dbPassword + '@ds029798.mongolab.com:29798/' + config.mongo.dbName
 mongoose.connect(MONGOLAB_URI);
 mongoose.connection.on('open', function() {console.info('Connected to Chitter MongoDB successfully!')});
-mongoose.connection.on('error', function(err) {console.error('Connection error to mongoDB: ' + '"' + MONGOLAB_URI + '" ' + err)});
+mongoose.connection.on('error', function(err) {console.error('ERROR connecting to: ' + '"' + MONGOLAB_URI + '" ' + err)});
 
-// Models
-var User = require('./models/user');
-var Tweet = require('./models/tweet');
+// RESTful API Handlers
+var handlers = {
+    user: require('./routes/user'),
+    tweet: require('./routes/tweet')
+};
 
-// Controllers - set up the RESTful API, handler methods are defined in controllers
-var userCtrl = require('./controllers/userCtrl');
+// USER RESTful
+app.get('/users', handlers.user.findAll);
+app.get('/users/:id', handlers.user.findById);
+app.post('/users', handlers.user.addUser);
+app.delete('/users/:id', handlers.user.deleteUser);
+app.put('/users/:id', handlers.user.updateUser);
 
-app.get('/users', userCtrl.list);  // TODO: (martin) this is just for testing, once the database connection will be done we can try if we getting list of user from mongoDB
+// TWEET RESTful
+app.get('/tweets', handlers.tweet.findAll);
+app.get('/tweets/:id', handlers.tweet.findById);
+app.post('/tweets', handlers.tweet.addTweet);
+app.delete('/tweets/:id', handlers.tweet.deleteTweet);
+app.put('/tweets/:id', handlers.tweet.updateTweet);
 
 // Start up the server on the port specified in the config
 server.listen(config.server.listenPort, 'localhost', 511, function() {
