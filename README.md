@@ -60,19 +60,38 @@ Our client application is a straight HTML/Javascript application but our develop
 
 (Note: If you are getting error with github try this "git config --global url."https://".insteadOf git://")
 
+### Server App
+
+Our backend application server is a NodeJS application that relies upon some 3rd Party npm packages. You need to install these:
+
+* Install local dependencies (navigate to chitter-prototype directory):
+
+    ```
+    cd server
+    npm install
+    cd ..
+    ```
+
 Running
 ----------------------
 
 ### Start the Server
+
+There are two options how to run application (command line or Intellij IDEA)
+
+####From command line
 * Run the server (the command will automatically opens web browser)
 
     ```
-    cd client
-    grunt server   
+    node server/server.js    
     ```
 
-(Note: If you don't have Ruby and Compass installed in your system PATH then run "grunt server --force")
+* Browse to the application at [http://localhost:3000]
 
+####From Intellij IDEA
+Install Node plugin for your intellij 
+
+TODO: add step how to install plugin and set config to get run app in Intellij
 
 Authors
 -------
