@@ -5,23 +5,31 @@ var mongoose = require('mongoose');
 var app = express();
 var server = http.createServer(app);
 
-// Database TODO: (martin) I still didn't get the database connection running
-mongoose.connect(config.mongo.dbUrl, config.mongo.apiKey);
-mongoose.connection.on('open', function() {console.log('Connected to MongoDB successfully!');});
-mongoose.connection.on('error', function(err) {console.error.bind(console, 'connection error:')});
+app.configure(function(){
+    app.use(express.favicon());
+    app.use(express.logger());
+    app.use(express.bodyParser());
+    app.use(app.router);
+    // set root application directory (from this directory will load index.html)
+    app.use(express.static(config.server.distFolder));
+    // A standard error handler - it picks up any left over errors and returns a nicely formatted server 500 error
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+    app.use(express.bodyParser());
+});
+
+// Database connection
+var MONGOLAB_URI = 'mongodb://' + config.mongo.dbUser + ':' + config.mongo.dbPassword + '@ds029798.mongolab.com:29798/' + config.mongo.dbName
+mongoose.connect(MONGOLAB_URI);
+mongoose.connection.on('open', function() {console.info('Connected to Chitter MongoDB successfully!')});
+mongoose.connection.on('error', function(err) {console.error('Connection error to mongoDB: ' + '"' + MONGOLAB_URI + '" ' + err)});
 
 // Models
 var User = require('./models/user');
 var Tweet = require('./models/tweet');
 
-// set root application directory (from this directory will load index.html)
-app.use(express.static(config.server.distFolder));
-// A standard error handler - it picks up any left over errors and returns a nicely formatted server 500 error
-app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-app.use(express.bodyParser());
-
-// set up the RESTful API, handler methods are defined in api.js
+// Controllers - set up the RESTful API, handler methods are defined in controllers
 var userCtrl = require('./controllers/userCtrl');
+
 app.get('/users', userCtrl.list);  // TODO: (martin) this is just for testing, once the database connection will be done we can try if we getting list of user from mongoDB
 
 // Start up the server on the port specified in the config
@@ -30,4 +38,4 @@ server.listen(config.server.listenPort, 'localhost', 511, function() {
   var open = require('open');
   open('http://localhost:' + config.server.listenPort + '/');
 });
-console.log('Chitter Server - listening on port: ' + config.server.listenPort);
+console.info('Chitter Server - listening on port: ' + config.server.listenPort);
