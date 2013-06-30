@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('clientCore', ['ui.bootstrap'])
-    .controller('MainCtrl', function ($scope, $rootScope, $location, $http, UserService, TweetService, $log) {
-        $scope.users = UserService.getUser();
-
+    .controller('MainCtrl', function ($scope, $rootScope, $location, $http, TweetService, $log) {
         $scope.loginErrorMessage = false;
         // Modal Form
         $scope.open = function() {
@@ -11,75 +9,30 @@ angular.module('clientCore', ['ui.bootstrap'])
         };
 
         $scope.save = function(tweet) {
+            //TODO: remove tweet service and call back end instead
             TweetService.addTweet(tweet);
             $scope.showModal = false;
-         };
-
-        $scope.cancel = function() {
-          $scope.showModal = false;
         };
 
-        $scope.tweets = TweetService.getTweet();
+        $scope.cancel = function() {
+            $scope.showModal = false;
+        };
 
         $scope.loginUser = function() {
-            var loggedIn = false;
-            var totalUsers = $scope.users.length;
-            var usernameTyped = $scope.email;
-            var passwwordTyped = $scope.password;
-
-            for( var i = 0; i < totalUsers; i++ ) {
-                if( $scope.users[i].email === usernameTyped && $scope.users[i].password === passwwordTyped) {
-                    loggedIn = true;
-                    break;
+            var request = $http.post('/login', {email: $scope.email, password: $scope.password});
+            return request.then(function(response) {
+                $rootScope.user = response.data.user;
+                $rootScope.tweets = response.data.tweets;
+                if(angular.isUndefined($scope.user)) {
+                    $scope.loginErrorMessage = true;
+                    $log.info("username does not exist");
+                } else {
+                    $location.path('/home')
                 }
-            }
-
-            if( loggedIn === true ) {
-                $log.info("login successful");
-                $location.path("/home");
-            } else {
-                $scope.loginErrorMessage = true;
-                $log.info("username does not exist")
-            }
+            });
         }
 
     })
-
-    .factory('UserService', ['$rootScope', function($rootScope) {
-        var users = [
-            {
-                id: "507f1f77bcf86cd799439011",
-                name: 'Martin Micunda',
-                username: 'mmicunda',
-                email: 'martin.micunda@asidua.com',
-                password: 'mmicunda123',
-                avatar: ''
-            },
-            {
-                id: "507f1f77bcf86cd799439012",
-                name: 'Chris  Laughlin',
-                username: 'claughlin',
-                email: 'christopher.laughlin@asidua.com',
-                password: 'claughlin123',
-                avatar: ''
-            },
-            {
-                id: "507f1f77bcf86cd799419011",
-                name: 'chitter',
-                username: 'chitter',
-                email: 'chitter',
-                password: 'chitter123',
-                avatar: ''
-            }
-        ];
-
-        return {
-            getUser:function () {
-                return users;
-            }
-        }
-    }])
-
 
     .factory('TweetService', ['$rootScope', function ($rootScope) {
         var tweets = 	[

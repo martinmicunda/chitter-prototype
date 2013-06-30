@@ -36,7 +36,7 @@ db.users.insert (
 		},
 		{
 			_id: ObjectId("507f1f77bcf86cd799439012"),
-			name: 'Chris  Laughlin',
+			name: 'Chris Laughlin',
 			username: 'claughlin',
 			email: 'christopher.laughlin@asidua.com',
 			password: 'claughlin123',

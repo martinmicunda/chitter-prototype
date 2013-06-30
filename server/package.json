@@ -5,6 +5,8 @@
       "grunt": "~0.4.1",
       "express": "3.x",
       "mongoose": "*",
-      "open": "0.0.3"
+      "open": "0.0.3",
+      "passport": "0.1.12",
+      "passport-local": "0.1.6"
   }
 }

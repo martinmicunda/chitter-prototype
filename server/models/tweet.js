@@ -1,8 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
 var tweetSchema= new Schema({
-//    userId: ObjectId, // TODO: (martin) check if this work as mongo can refered to other collection only by ObjectId and not String also check if mongooseJS support some kind of relationship
+    user: {
+        id: ObjectId,
+        name: String,
+        username: String,
+        path: String
+    },
     creationDate: { type: Date, default: Date.now },
     text: String
 }, { collection: 'tweets' });
