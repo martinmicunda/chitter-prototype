@@ -1,4 +1,5 @@
 var Tweet = require('../models/tweet');
+var User = require('../models/user');
 
 /**
  * HTTP GET /tweets/:id
@@ -14,6 +15,32 @@ exports.findById = function (req, res) {
             return res.send(tweet);
         } else {
             return console.error(err);
+        }
+    });
+}
+
+/**
+ * HTTP GET /tweets/:username
+ * Find a tweet by username
+ * Param: username of the account the tweet was from
+ * Returns: the tweets corresponding to the specified username
+ */
+exports.findByUserId = function (req, res) {
+    console.info('Retrieving tweets for userId: ' + req.params.username);
+    Tweet.find(function (err, tweets) {
+        if (!err) {
+            var returnTweets = [];
+            console.log("tweets length: " + tweets.length);
+            for(var i = 0; i < tweets.length; i++) {
+                console.log("Tweet ID: " + tweets[i].user.username);
+                console.log("User ID: " + req.params.username);
+                if (tweets[i].user.username == req.params.username) {
+                    returnTweets.push(tweets[i]);
+                }
+            }
+            return res.send(returnTweets);
+        } else {
+            return console.log(err);
         }
     });
 }
@@ -40,19 +67,32 @@ exports.findAll = function(req, res) {
  */
 exports.addTweet = function(req, res) {
     console.log('Adding tweet: ' + JSON.stringify(req.body));
-
-    var user = new Tweet({
+    /*
+     user: {
+     id: ObjectId,
+     name: String,
+     username: String,
+     path: String
+     },
+     creationDate: { type: Date, default: Date.now },
+     text: String
+     */
+    console.log("User: " + JSON.stringify(req.body.user))
+    var tweet = new Tweet({
+        user: req.body.user,
+        creationDate: new Date(),
+        text: req.body.tweet.text
         // TODO:(martin) add right details once the model is done
     });
 
-    user.save(function (err) {
+    tweet.save(function (err) {
         if (!err) {
             return console.info("Tweet created");
         } else {
             return console.error(err);
         }
     });
-    return res.send(user);
+    return res.send(tweet);
 }
 
 /**

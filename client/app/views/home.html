@@ -76,10 +76,10 @@
 
 <div class="modal modal-content" modal="showModal">
     <form method="POST" action="" novalidate>
-        <input type="hidden" ng-model="tweet.user.id" ng-init="tweet.user.id='507f1f77bcf86cd799439011'" value="507f1f77bcf86cd799439011">
+        <!--<input type="hidden" ng-model="tweet.user.id" ng-init="tweet.user.id='507f1f77bcf86cd799439011'" value="507f1f77bcf86cd799439011">-->
         <!--TODO: this information should be already on server as we are sending user_id-->
-        <input type="hidden" ng-model="tweet.user.name" ng-init="tweet.user.name='Martin'" value="Martin">
-        <input type="hidden" ng-model="tweet.user.username" ng-init="tweet.user.username='martinmicunda'" value="martinmicunda">
+        <input type="hidden" ng-model="user.name">
+        <input type="hidden" ng-model="user.username">
         <input type="hidden" ng-model="tweet.date" ng-init="tweet.date='1m'" value="1m">
         <!-------------------------------------------------------------------------------->
         <button class="modal-close" type="button" ng-click="cancel()">
@@ -96,7 +96,7 @@
         <br />
         <div class="modal-footer">
             <!--<span class="tweet-counter">140</span>-->
-            <button class="button_green" ng-click="save(tweet)">Tweet</button>
+            <button class="button_green" ng-click="addTweet(tweet)">Tweet</button>
         </div>
         </div>
     </form>

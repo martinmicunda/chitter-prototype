@@ -22,19 +22,33 @@ angular.module('clientCore', ['ui.bootstrap'])
             var request = $http.post('/login', {email: $scope.email, password: $scope.password});
             return request.then(function(response) {
                 $rootScope.user = response.data.user;
-                $rootScope.tweets = response.data.tweets;
-                if(angular.isUndefined($scope.user)) {
-                    $scope.loginErrorMessage = true;
-                    $log.info("username does not exist");
-                } else {
-                    $location.path('/home')
-                }
+                var requestTweets = $http.get('/tweets/tweetsForUser/' + response.data.user.username);
+                    requestTweets.then(function(tweetData) {
+                    $rootScope.tweets = tweetData.data;
+                    if(angular.isUndefined($scope.user)) {
+                        $scope.loginErrorMessage = true;
+                        $log.info("username does not exist");
+                    } else {
+                        $location.path('/home')
+                    }
+                })
+
             });
+        }
+
+        $scope.addTweet = function(tweet) {
+            var request = $http.post('/tweets', {user: $rootScope.user, tweet: tweet});
+            request.then(function() {
+                var requestTweets = $http.get('/tweets/tweetsForUser/' + $rootScope.user.username);
+                requestTweets.then(function(tweetData) {
+                    $rootScope.tweets = tweetData.data;
+                });
+            })
         }
 
     })
 
-    .factory('TweetService', ['$rootScope', function ($rootScope) {
+    .factory('TweetService', ['$rootScope', '$http', function ($rootScope, $http) {
         var tweets = 	[
         		{
                     id: "507f1f77bcf86cd799439012",
@@ -98,9 +112,17 @@ angular.module('clientCore', ['ui.bootstrap'])
                 }
         	];
 
+        function getTweetsForUserName(username) {
+            var request = $http.get('/tweets/tweetsForUser/' + username);
+            return request.then(function(data) {
+                $rootScope.tweets = data.data;
+            })
+        }
+
         return {
-            getTweet:function () {
-                return tweets;
+            getTweetForUser:function (userName) {
+                var request = $http.get('/tweets/tweetsForUser/' + userName);
+                return request.promise;
             },
             addTweet:function(tweet) {
                 tweets.unshift(tweet);
