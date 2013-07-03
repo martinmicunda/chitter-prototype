@@ -5,18 +5,6 @@ Chitter allows developers to share useful information quickly and informally usi
 
 The main task of the project is to develop prototype that will be present to the rest of the [Asidua](http://asidua.com/) (Chitter) group so group can decide which prototype to move forward with to develop Chitter Application.
 
-
-Technologies Used
-------------------
-+ [AngularJS](http://angularjs.org/)
-+ [NodeJS](http://nodejs.org/)
-+ [MongoDB](http://www.mongodb.org/)
-+ [HTML5](http://www.w3.org/TR/2011/WD-html5-20110525/)
-+ [CSS3](http://www.w3.org/TR/2001/WD-css3-roadmap-20010523/)
-+ [lessCSS](http://lesscss.org/)
-+ [underscoreJS](http://underscorejs.org/) 
-+ [Yeoman](http://yeoman.io/)
-
 Development Principles
 ----------------------
 
@@ -30,6 +18,22 @@ Development Principles
 + Chitter will be developed in a manner that will support public cloud deployment
 + Chitter will be developed using freely available tools and frameworks (no Asidua licenses will be required)
 + Chitter will be developed using tools and frameworks that are not tied to a single platform (e.g. Windows)
+
+Technologies Used
+------------------
++ [AngularJS](http://angularjs.org/)
++ [NodeJS](http://nodejs.org/)
++ [MongoDB](http://www.mongodb.org/)
++ [HTML5](http://www.w3.org/TR/2011/WD-html5-20110525/)
++ [CSS3](http://www.w3.org/TR/2001/WD-css3-roadmap-20010523/)
++ [lessCSS](http://lesscss.org/)
++ [underscoreJS](http://underscorejs.org/) 
++ [Yeoman](http://yeoman.io/)
+
+Architecture Diagram
+--------------------
+
+![Chitter Architecture Diagram](/resources/diagrams/architecture_diagram.png "Chitter Architecture Diagram")
 
 Installation
 ----------------------
