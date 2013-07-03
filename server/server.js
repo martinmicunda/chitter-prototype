@@ -3,7 +3,6 @@ var express = require('express');
 var config = require('./config.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var security = require('./lib/security');
 var app = express();
 var server = http.createServer(app);
 
@@ -39,7 +38,7 @@ app.use(function(req, res, next) {
 var handlers = {
     user: require('./routes/user'),
     tweet: require('./routes/tweet'),
-    security: require('./lib/security')
+    security: require('./routes/security')
 };
 
 // Login/Logout
