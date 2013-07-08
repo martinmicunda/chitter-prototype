@@ -1,12 +1,32 @@
 {
-  "name": "server",
-  "version": "0.0.0",
-  "dependencies": {
-      "grunt": "~0.4.1",
-      "express": "3.x",
-      "mongoose": "*",
-      "open": "0.0.3",
-      "passport": "0.1.12",
-      "passport-local": "0.1.6"
-  }
+    "name": "chitter-prototype",
+    "version": "0.0.1",
+    "author": "Martin Micunda, Christopher Laughlin",
+    "homepage": "http://chitter-prototype.herokuapp.com/",
+    "scripts": {
+        "start": "node ./server/server.js"
+    },
+    "main": "./server/server.js",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:martinmicunda/chitter-prototype.git"
+    },
+    "bugs": {
+      "url": "https://github.com/martinmicunda/chitter-prototype/issues"
+    },
+    "dependencies": {
+        "grunt": "0.4.x",
+        "express": "3.x",
+        "mongoose": "3.6.x",
+        "open": "0.0.3",
+        "passport": "0.1.17",
+        "passport-local": "0.1.6"
+    },
+    "devDependencies": {
+        "grunt": "0.4.x"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=0.8"
+    }
 }

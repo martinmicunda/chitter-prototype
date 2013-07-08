@@ -25,14 +25,14 @@ mongoose.connect(MONGOLAB_URI);
 mongoose.connection.on('open', function() {console.info('Connected to Chitter MongoDB successfully!')});
 mongoose.connection.on('error', function(err) {console.error('ERROR connecting to: ' + '"' + MONGOLAB_URI + '" ' + err)});
 
-app.use(function(req, res, next) {
-  if ( req.user ) {
-    console.log('Current User:', req.user.firstName, req.user.lastName);
-  } else {
-    console.log('Unauthenticated');
-  }
-  next();
-});
+//app.use(function(req, res, next) {
+//  if ( req.user ) {
+//    console.log('Current User:', req.user.firstName, req.user.lastName);
+//  } else {
+//    console.log('Unauthenticated');
+//  }
+//  next();
+//});
 
 // RESTful API Handlers
 var handlers = {
