@@ -28,7 +28,7 @@ Technologies Used
 + [CSS3](http://www.w3.org/TR/2001/WD-css3-roadmap-20010523/)
 + [lessCSS](http://lesscss.org/)
 + [underscoreJS](http://underscorejs.org/) 
-+ [Yeoman](http://yeoman.io/)
++ [Grunt](http://gruntjs.com/)
 
 Architecture Diagram
 --------------------
@@ -41,24 +41,23 @@ Installation
 ### Platform & tools
 
 You need to install Node.js and then the development tools. Node.js comes with a package manager called [npm](http://npmjs.org) for installing NodeJS applications and libraries.
-* [Install node.js](http://nodejs.org/download/) (requires node.js version >= 0.8.4)
-* [Install Yeoman](http://yeoman.io/) as global npm modules (requires node.js version >= 1.0):
+* [Install node.js](http://nodejs.org/download/) (requires node.js version >= 0.8.0)
+* [Install Grunt](http://gruntjs.com/) as global npm modules (requires node.js version >= 0.8.0):
 
     ```
-    npm install -g yo grunt-cli bower
+    npm install -g grunt-cli
     ```
 
 ### Client App
 
 Our client application is a straight HTML/Javascript application but our development process uses a Node.js build tool
-[Grunt.js](gruntjs.com) and dependencies tool [Bower.js](http://bower.io/). Grunt and Bower relies upon some 3rd party libraries that we need to install as local dependencies.
+[Grunt.js](gruntjs.com). Grunt relies upon some 3rd party libraries that we need to install as local dependencies.
 
 * Install local dependencies (navigate to chitter-prototype directory):
 
     ```
     cd client
     npm install
-    bower install
     cd ..
     ```
 
@@ -93,9 +92,26 @@ There are two options how to run application (command line or Intellij IDEA)
 * Browse to the application at [http://localhost:3000]
 
 ####From Intellij IDEA
-Install Node plugin for your intellij 
+Install Node plugin for your Intellij and then go to Edit -> Edit Configurations and set details as it show below 
 
-TODO: add step how to install plugin and set config to get run app in Intellij
+![Run Chitter Server from Intellij IDEA](/resources/images/node_server.png "Run Chitter Server from Intellij IDEA")
+
+Development
+----------------------
+
+### Continuous Building
+The watch grunt task will monitor the source files and run the default build task every time a file changes (it will refresh browser for you).
+
+####From command line
+
+```
+cd client
+grunt watch 
+```
+
+####From Intellij IDEA
+
+![Run Grunt watch task](/resources/images/grunt_watch.png "Run Grunt watch task")
 
 Authors
 -------
