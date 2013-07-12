@@ -48,6 +48,7 @@ app.post('/login', handlers.security.login);
 // USER RESTful
 app.get('/users', handlers.user.findAll);
 app.get('/users/:id', handlers.user.findById);
+app.get('/userByUsername/:username', handlers.user.findByUsername);
 app.post('/users', handlers.user.addUser);
 app.delete('/users/:id', handlers.user.deleteUser);
 app.put('/users/:id', handlers.user.updateUser);
@@ -56,7 +57,7 @@ app.put('/users/:id', handlers.user.updateUser);
 app.get('/tweets', handlers.tweet.findAll);
 app.get('/tweets/:id', handlers.tweet.findById);
 app.get('/tweets/tweetsForUser/:username', handlers.tweet.findByUserId);
-app.post('/tweets', handlers.tweet.addTweet);
+app.post('/tweets/addTweet', handlers.tweet.addTweet);
 app.delete('/tweets/:id', handlers.tweet.deleteTweet);
 app.put('/tweets/:id', handlers.tweet.updateTweet);
 

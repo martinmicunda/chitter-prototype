@@ -1,15 +1,14 @@
 'use strict';
-
-angular.module('chitterApp', ['clientCore'])
-    .config(function ($routeProvider) {
+var chitterApp = angular.module('chitterApp',['chitterServices']);
+chitterApp.config(function ($routeProvider) {
         $routeProvider
         .when('/', {
             templateUrl: 'app/templates/login.tpl.html',
-            controller: 'MainCtrl'
+            controller: LoginCtrl
         })
-        .when('/home', {
+        .when('/home/:id', {
             templateUrl: 'app/templates/home.tpl.html',
-            controller: 'MainCtrl'
+            controller: HomeCtrl
         })
         .otherwise({
             redirectTo: '/'

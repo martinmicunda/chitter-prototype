@@ -43,7 +43,7 @@ exports.findByUserId = function (req, res) {
             return console.log(err);
         }
     });
-}
+};
 
 /**
  * HTTP GET /tweets
@@ -53,6 +53,7 @@ exports.findAll = function(req, res) {
     console.info('Retrieving all tweets');
     return Tweet.find(function(err, tweets) {
         if (!err) {
+            console.log('tweets: ' + JSON.stringify(tweets));
             return res.send(tweets);
         } else {
             return console.log(err);

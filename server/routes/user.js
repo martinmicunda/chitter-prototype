@@ -18,6 +18,25 @@ exports.findById = function (req, res) {
     });
 }
 
+
+/**
+ * HTTP GET /users/:username
+ * Find an user by username
+ * Param: username of the user to find
+ * Returns: the user corresponding to the specified username
+ */
+exports.findByUsername = function (req, res) {
+    var username = req.params.username;
+    console.info('Retrieving user: ' + username);
+    return User.find({username: req.params.username}, function (err, user) {
+        if (!err) {
+            return res.send(user);
+        } else {
+            return console.error(err);
+        }
+    });
+}
+
 /**
  * HTTP GET /users
  * Returns: the list of users

@@ -9,10 +9,10 @@
         </form>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a ng-href="#/home/{{user._id}}">Home</a></li>
                 <li><a href="#">Connect</a></li>
                 <li><a href="#">Discover</a></li>
-                <li><a href="#">Me</a></li>
+                <li><a href="#/userHome/{{user._id}}">Me</a></li>
             </ul>
         </nav>
     </div>
@@ -78,9 +78,9 @@
     <form method="POST" action="" novalidate>
         <!--<input type="hidden" ng-model="tweet.user.id" ng-init="tweet.user.id='507f1f77bcf86cd799439011'" value="507f1f77bcf86cd799439011">-->
         <!--TODO: this information should be already on server as we are sending user_id-->
+        <input type="hidden" ng-model="user._id">
         <input type="hidden" ng-model="user.name">
         <input type="hidden" ng-model="user.username">
-        <input type="hidden" ng-model="tweet.date" ng-init="tweet.date='1m'" value="1m">
         <!-------------------------------------------------------------------------------->
         <button class="modal-close" type="button" ng-click="cancel()">
             <span class="icon close-medium">
@@ -96,7 +96,7 @@
         <br />
         <div class="modal-footer">
             <!--<span class="tweet-counter">140</span>-->
-            <button class="button_green" ng-click="addTweet(tweet)">Tweet</button>
+            <button class="button_green" ng-click="addTweet(tweet);cancel();">Tweet</button>
         </div>
         </div>
     </form>

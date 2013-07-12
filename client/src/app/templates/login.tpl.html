@@ -9,8 +9,8 @@
         <h2 class="welcome">Login Form</h2>
 
         <form method="post" name="login" id="form_login" action="" novalidate ng-submit="loginUser()">
-            <input ng-model="email" class="input" ng-class="{'alert-error': loginErrorMessage}" type="text" value="Email Address">
-            <input ng-model="password" class="input"  ng-class="{'alert-error': loginErrorMessage}" type="password" id="Password1" value="Password">
+            <input ng-model="email" class="input" ng-class="{'alert-error': loginErrorMessage}" type="text" planceholder="Email Address">
+            <input ng-model="password" class="input"  ng-class="{'alert-error': loginErrorMessage}" type="password" id="Password1" placeholder="Password">
             <input type="submit" value="Login" class="button_white" style="display: inline;">
             <!--<button class="button_white" style="display: inline;" >Login</button>-->
             <a href="#/home/">Fogot login info?</a>
