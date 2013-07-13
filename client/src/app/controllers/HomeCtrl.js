@@ -3,6 +3,7 @@
 function HomeCtrl($scope, $routeParams, User, Tweet) {
 
     $scope.user = {};
+    $scope.userToView = {};
     $scope.tweets = [];
 
     //Get All tweet for time line
@@ -16,6 +17,8 @@ function HomeCtrl($scope, $routeParams, User, Tweet) {
     function getUser(id) {
         User.getUserById(id).then(function (responce) {
             $scope.user = responce.data;
+            $scope.userToView = responce.data;
+            $scope.userToView.viewMessage = "";
         });
     }
 
@@ -40,6 +43,16 @@ function HomeCtrl($scope, $routeParams, User, Tweet) {
 
     $scope.addTweet = function (tweet) {
 
+    }
+
+    $scope.viewUser = function(id) {
+        User.getUserById(id).then(function(responce) {
+            $scope.userToView = responce.data;
+            $scope.userToView.viewMessage = " by " + $scope.userToView.name;
+            Tweet.getTweetsById($scope.userToView.username).then(function(responce) {
+                $scope.tweets = responce.data;
+            })
+        })
     }
 
 };

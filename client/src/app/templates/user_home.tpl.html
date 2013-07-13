@@ -12,7 +12,7 @@
                 <li><a ng-href="#/home/{{user._id}}">Home</a></li>
                 <li><a href="#">Connect</a></li>
                 <li><a href="#">Discover</a></li>
-                <li><a href ng-click="viewUser(user._id)">Me</a></li>
+                <li><a href="#/userHome/{{user._id}}">Me</a></li>
             </ul>
         </nav>
     </div>
@@ -21,7 +21,7 @@
 <section>
     <div id="timeline">
         <div class="header_inner">
-            <h2>Tweets {{userToView.viewMessage}}</h2>
+            <h2>Tweets</h2>
             <div class="btn_tweet_wrapper" ng-click="open()">
                 <!--<button class="btn_tweet" type="button" ng-click="open()" />-->
             </div>
@@ -31,7 +31,7 @@
             <li class="tweet_wrapper" ng-class="{top_border: $first, last: $last}" ng-repeat="tweet in tweets">
                 <img class="avatar" src="../../assets/images/wo2h8r0qy8d5lsxe5lgd_normal.png">
                 <div class="content">
-                    <a href ng-click="viewUser(tweet.user._id)" class="name">{{tweet.user.name}}</a> <span class="username">{{tweet.user.username}}</span>
+                    <a href="#" class="name">{{tweet.user.name}}</a> <span class="username">{{tweet.user.username}}</span>
                     <p>{{tweet.text}}</p>
                     <!-- TODO: need a filter to convert time to hours or minute -->
                     <span class="time clear">{{tweet.date}}</span>
@@ -40,12 +40,12 @@
 
 
             <!--<li class="tweet_wrapper top_border">-->
-                <!--<img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">-->
-                <!--<div class="content">-->
-                    <!--<a href="#" class="name">Kermit</a> <span class="username">@username</span>-->
-                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>-->
-                    <!--<span class="time clear">2h</span>-->
-                <!--</div>-->
+            <!--<img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">-->
+            <!--<div class="content">-->
+            <!--<a href="#" class="name">Kermit</a> <span class="username">@username</span>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>-->
+            <!--<span class="time clear">2h</span>-->
+            <!--</div>-->
             <!--</li>-->
 
         </ul>
@@ -92,12 +92,12 @@
         </div>
         <div class="modal-body">
 
-        <textarea id="tweetMessage" class="modal-tweet-box" ng-model="tweet.text"></textarea>
-        <br />
-        <div class="modal-footer">
-            <!--<span class="tweet-counter">140</span>-->
-            <button class="button_green" ng-click="addTweet(tweet);cancel();">Tweet</button>
-        </div>
+            <textarea id="tweetMessage" class="modal-tweet-box" ng-model="tweet.text"></textarea>
+            <br />
+            <div class="modal-footer">
+                <!--<span class="tweet-counter">140</span>-->
+                <button class="button_green" ng-click="addTweet(tweet);cancel();">Tweet</button>
+            </div>
         </div>
     </form>
 </div>

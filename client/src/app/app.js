@@ -10,6 +10,10 @@ chitterApp.config(function ($routeProvider) {
             templateUrl: 'app/templates/home.tpl.html',
             controller: HomeCtrl
         })
+//        .when('/home/:id', {
+//            templateUrl: 'app/templates/user_home.tpl.html',
+//            controller: UserCtrl
+//        })
         .otherwise({
             redirectTo: '/'
         });

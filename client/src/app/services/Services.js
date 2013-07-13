@@ -14,6 +14,9 @@ angular.module('chitterServices', ['ui.bootstrap'])
     }}])
     .factory('Tweet', ['$rootScope', '$http', function ($rootScope, $http) {
         return {
+            getTweetsById: function(username) {
+                return $http.get('tweets/tweetsForUser/'+username);
+            },
             getTweetsForUserName: function (username) {
                 var request = $http.post('/users', {username: username});
                 return request.promise;
