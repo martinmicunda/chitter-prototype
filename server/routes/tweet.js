@@ -78,22 +78,23 @@ exports.addTweet = function(req, res) {
      creationDate: { type: Date, default: Date.now },
      text: String
      */
-    console.log("User: " + JSON.stringify(req.body.user))
     var tweet = new Tweet({
-        user: req.body.user,
-        creationDate: new Date(),
-        text: req.body.tweet.text
-        // TODO:(martin) add right details once the model is done
+        creationDate: new Date()
     });
-
+    tweet.user.id = req.body.user._id;
+    tweet.user.name = req.body.user.name;
+    tweet.user.username = req.body.user.username;
+    tweet.user.path = "";
+    tweet.text = req.body.text.text;
+    console.log("Adding Tweet: " + JSON.stringify(tweet));
     tweet.save(function (err) {
         if (!err) {
-            return console.info("Tweet created");
+            console.info("Tweet created");
+            return res.send("Tweet created");
         } else {
-            return console.error(err);
+            return res.send(err);
         }
     });
-    return res.send(tweet);
 }
 
 /**
@@ -128,7 +129,7 @@ exports.updateTweet = function(req, res) {
  */
 exports.deleteTweet = function(req, res) {
     var id = req.params.id;
-    console.log('Deleting user: ' + id);
+    console.log('Deleting tweet: ' + id);
     return Tweet.findById(req.params.id, function (err, tweet) {
         return tweet.remove(function (err) {
         if (!err) {
