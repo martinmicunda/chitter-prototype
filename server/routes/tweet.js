@@ -49,9 +49,10 @@ exports.findByUserId = function (req, res) {
  * HTTP GET /tweets
  * Returns: the list of tweets
  */
+//.sort({date: 'descending'})
 exports.findAll = function(req, res) {
     console.info('Retrieving all tweets');
-    return Tweet.find(function(err, tweets) {
+    return Tweet.find({}).sort({creationDate: 'descending'}).exec(function(err, tweets) {
         if (!err) {
             console.log('tweets: ' + JSON.stringify(tweets));
             return res.send(tweets);

@@ -24,8 +24,11 @@ angular.module('chitterServices', ['ui.bootstrap'])
             getTweets: function () {
                 return $http.get('/tweets');
             },
-            addTweet: function (tweet) {
-
+            addNewTweet: function (message, user) {
+                return $http.post('/tweets/addTweet', {user:user, text:message});
+            },
+            deleteTweet: function(id) {
+                return $http.delete('/tweets/'+id);
             }
         }
     }]);

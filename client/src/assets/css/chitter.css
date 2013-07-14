@@ -257,6 +257,9 @@ a.name {
 .username {
     color: #999999;
 }
+.name {
+    color: #999999;
+}
 .top_border {
     border-top: 1px solid #c7c7c7;
 }
