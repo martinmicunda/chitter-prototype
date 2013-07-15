@@ -52,7 +52,7 @@ exports.findByUserId = function (req, res) {
 //.sort({date: 'descending'})
 exports.findAll = function(req, res) {
     console.info('Retrieving all tweets');
-    return Tweet.find({}).sort({creationDate: 'descending'}).exec(function(err, tweets) {
+    return Tweet.find({}).populate('user', 'name avatarPath').sort({creationDate: 'descending'}).exec(function(err, tweets) {
         if (!err) {
             console.log('tweets: ' + JSON.stringify(tweets));
             return res.send(tweets);
@@ -79,14 +79,18 @@ exports.addTweet = function(req, res) {
      creationDate: { type: Date, default: Date.now },
      text: String
      */
+
+//    User.findOne({ _id: req.body.userId });
+
     var tweet = new Tweet({
-        creationDate: new Date()
+        user: req.body.userId,
+        creationDate: new Date(),
+        text: req.body.text.text
     });
-    tweet.user.id = req.body.user._id;
-    tweet.user.name = req.body.user.name;
-    tweet.user.username = req.body.user.username;
-    tweet.user.path = "";
-    tweet.text = req.body.text.text;
+//    tweet.user.id = req.body.userId;
+//    tweet.user.name = req.body.user.name;
+//    tweet.user.path = "";
+//    tweet.text = req.body.text.text;
     console.log("Adding Tweet: " + JSON.stringify(tweet));
     tweet.save(function (err) {
         if (!err) {

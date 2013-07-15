@@ -1,13 +1,15 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+//TODO: (martin micunda create default path for avatar)
 var userSchema= new Schema({
-    name: String,
-    username: String,
-    email: String,
-    password: String,
-    avatarPath: String
+    _id: String,
+    name: { type: String, required: true },
+    email: { type: String, unique: true },
+    password: { type: String, required: true },
+    avatarPath: { type: String, default: 'avatarPath' }
 }, { collection: 'users' });
+
 
 // Password verification
 userSchema.methods.comparePassword = function(candidatePassword) {
@@ -25,3 +27,5 @@ userSchema.methods.comparePassword = function(candidatePassword) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+
+

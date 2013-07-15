@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         src: {
             js: ['./src/app/**/*.js'],
             html: ['./src/index.html'],
-            tpl: ['./src/app/templates/*.tpl.html'],
+            tpl: ['./src/app/**/*.tpl.html'],
             css: ['./src/assets/css/*.css']
         },
         jshint: {

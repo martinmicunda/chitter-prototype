@@ -3,14 +3,9 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var tweetSchema= new Schema({
-    user: {
-        id: ObjectId,
-        name: String,
-        username: String,
-        path: String
-    },
-    creationDate: { type: Date, default: Date.now },
-    text: String
+    user: [{ type: String, ref: 'User', required: true }],
+    creationDate: { type: Date, required: true, default: Date.now },
+    text: { type: String, required: true }
 }, { collection: 'tweets' });
 
 module.exports = mongoose.model('Tweet', tweetSchema);

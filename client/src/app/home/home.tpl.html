@@ -32,7 +32,7 @@
             <li class="tweet_wrapper" ng-class="{top_border: $first, last: $last}" ng-repeat="tweet in tweets | orderBy:creationDate:reverse">
                 <img class="avatar" src="../../assets/images/wo2h8r0qy8d5lsxe5lgd_normal.png">
                 <div class="content">
-                    <a href ng-click="viewUser(tweet.user._id)" class="name">{{tweet.user.name}}</a> <span class="username">{{tweet.user.username}}</span>
+                    <a href ng-click="viewUser(tweet.user._id)" class="name">{{tweet.user[0].name}}</a> <span class="username">{{tweet.user[0]._id}}</span>
                     <p>{{tweet.text}}</p>
                     <!-- TODO: need a filter to convert time to hours or minute -->
                     <span class="time clear">{{tweet.creationDate}}</span><br>

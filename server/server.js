@@ -57,7 +57,7 @@ app.put('/users/:id', handlers.user.updateUser);
 app.get('/tweets', handlers.tweet.findAll);
 app.get('/tweets/:id', handlers.tweet.findById);
 app.get('/tweets/tweetsForUser/:username', handlers.tweet.findByUserId);
-app.post('/tweets/addTweet', handlers.tweet.addTweet);
+app.post('/tweet', handlers.tweet.addTweet);
 app.delete('/tweets/:id', handlers.tweet.deleteTweet);
 app.put('/tweets/:id', handlers.tweet.updateTweet);
 

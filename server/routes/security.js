@@ -17,7 +17,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(username, pa
     console.info("email: " + username);
     console.info("password: " + password);
 
-    User.findOne({ email: username }, function(err, user) {
+    User.findOne({ _id: username }, function(err, user) {
         console.info("user: " + user);
         if (err) { return done(err); }
         if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
