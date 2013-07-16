@@ -19,6 +19,9 @@ angular.module('home', ['models', 'ui.bootstrap'])
         getUser($routeParams.id);
         getTweets();
 
+//        $scope.addUser = function () {
+//            User.addNewUser();
+//        }
         // Modal Form
         $scope.open = function () {
             $scope.showModal = true;
