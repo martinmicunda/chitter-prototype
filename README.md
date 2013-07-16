@@ -7,6 +7,15 @@ Chitter allows developers to share useful information quickly and informally usi
 
 The main task of the project is to develop prototype that will be present to the rest of the [Asidua](http://asidua.com/) (Chitter) group so group can decide which prototype to move forward with to develop Chitter Application.
 
+[Click here to see it in action!](http://chitter-prototype.herokuapp.com/)
+
+* Login Details:
+
+    ```
+    username: chitter
+    password: chitter123
+    ```
+    
 Development Principles
 ----------------------
 
