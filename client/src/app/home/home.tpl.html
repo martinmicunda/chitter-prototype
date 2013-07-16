@@ -1,6 +1,6 @@
 <header>
     <div id="topbar">
-        <h1>Chitter</h1>
+        <h1><a href ng-click="viewHome()">Chitter</a></h1>
         <form action="#" method="get" id="search_form">
             <fieldset>
                 <input type="text" name="search" class="search-input "/>
@@ -9,19 +9,20 @@
         </form>
         <nav>
             <ul>
-                <li><a href ng-click="homeClicked()">Home</a></li>
+                <li><a href ng-click="viewHome()">Home</a></li>
                 <li><a href="#">Connect</a></li>
                 <li><a href="#">Discover</a></li>
-                <li><a href ng-click="viewUser(user._id)">Me</a></li>
+                <li><a href ng-click="viewUserHome(user._id)">Me</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <section>
+    <!--<p ng-click="addUser()">add user</p>-->
     <div id="timeline">
         <div class="header_inner">
-            <h2>Tweets {{userToView.viewMessage}}</h2>
+            <h2>Tweets</h2>
             <div class="btn_tweet_wrapper" ng-click="open()">
                 Chitt
                 <!--<button class="btn_tweet" type="button" ng-click="open()" />-->
@@ -29,36 +30,25 @@
             <!--<input id="edit-submit-presentations" class="form-submit" type="submit" value="Search" name="">-->
         </div>
         <ul>
-            <li class="tweet_wrapper" ng-class="{top_border: $first, last: $last}" ng-repeat="tweet in tweets | orderBy:creationDate:reverse">
-                <img class="avatar" src="../../assets/images/wo2h8r0qy8d5lsxe5lgd_normal.png">
+            <li class="tweet_wrapper" ng-class="{top_border: $first, last: $last}" ng-repeat="tweet in tweets">
+                <img class="avatar" ng-src="../../assets/images/avatars/{{ tweet.user._id }}.png" width="48" height="48" alt="avatar">
                 <div class="content">
-                    <a href ng-click="viewUser(tweet.user._id)" class="name">{{tweet.user[0].name}}</a> <span class="username">{{tweet.user[0]._id}}</span>
+                    <a href ng-click="viewUser(tweet.user._id)" class="name">{{tweet.user.name}}</a> <span class="username">{{tweet.user._id}}</span>
                     <p>{{tweet.text}}</p>
                     <!-- TODO: need a filter to convert time to hours or minute -->
                     <span class="time clear">{{tweet.creationDate}}</span><br>
                     <a ng-show="tweet.canBeDeleted" class="time clear" href ng-click="deleteTweet(tweet._id)">Delete</a>
                 </div>
             </li>
-
-
-            <!--<li class="tweet_wrapper top_border">-->
-                <!--<img class="avatar" src="images/wo2h8r0qy8d5lsxe5lgd_normal.png">-->
-                <!--<div class="content">-->
-                    <!--<a href="#" class="name">Kermit</a> <span class="username">@username</span>-->
-                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in est orci, ac ultrices lorem. Sed convallis turpis ac enim convallis cursus. Cras tempor mi et urna interdum sed venenatis ipsum molestie <a href="#">buff.ly/17AYJF0</a></p>-->
-                    <!--<span class="time clear">2h</span>-->
-                <!--</div>-->
-            <!--</li>-->
-
         </ul>
     </div>
     <div id="dashboard">
         <div class="box" style="height: 126px;">
-            <img class="avatar" src="../../assets/images/wo2h8r0qy8d5lsxe5lgd_normal.png">
+            <img class="avatar" ng-src="../../assets/images/avatars/{{ user._id }}.png" width="48" height="48" alt="avatar">
             <div class="content">
-                <span class="name">Name: {{userToView.name}}</span><br>
-                <span class="username">@{{userToView.username}}</span><br>
-                <span class="username">Chitts: {{userToView.totalTweets}}</span><br>
+                <span class="name">Name: {{user.name}}</span><br>
+                <span class="username">@{{user._id}}</span><br>
+                <span class="username">Chitts: {{user.totalTweets}}</span><br>
             </div>
         </div>
 
@@ -97,11 +87,11 @@
         </div>
         <div class="modal-body">
 
-        <textarea id="tweetMessage" class="modal-tweet-box" ng-model="tweet.text"></textarea>
+        <textarea id="tweetMessage" class="modal-tweet-box" ng-model="text"></textarea>
         <br />
         <div class="modal-footer">
             <!--<span class="tweet-counter">140</span>-->
-            <button class="button_green" ng-click="addTweet(tweet);cancel();">Tweet</button>
+            <button class="button_green" ng-click="addTweet(text)">Tweet</button>
         </div>
         </div>
     </form>

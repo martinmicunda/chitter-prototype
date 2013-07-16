@@ -26,19 +26,11 @@ exports.findById = function (req, res) {
  * Returns: the tweets corresponding to the specified username
  */
 exports.findByUserId = function (req, res) {
-    console.info('Retrieving tweets for userId: ' + req.params.username);
-    Tweet.find(function (err, tweets) {
+    console.info('Retrieving tweets for userId: ' + req.params.userId);
+    return Tweet.find({'user': req.params.userId }).populate('user', 'name avatarPath').sort({creationDate: 'descending'}).exec(function(err, tweets) {
         if (!err) {
-            var returnTweets = [];
-            console.log("tweets length: " + tweets.length);
-            for(var i = 0; i < tweets.length; i++) {
-                console.log("Tweet ID: " + tweets[i].user.username);
-                console.log("User ID: " + req.params.username);
-                if (tweets[i].user.username == req.params.username) {
-                    returnTweets.push(tweets[i]);
-                }
-            }
-            return res.send(returnTweets);
+            console.log('tweets: ' + JSON.stringify(tweets));
+            return res.send(tweets);
         } else {
             return console.log(err);
         }
@@ -68,29 +60,12 @@ exports.findAll = function(req, res) {
  * Param: tweet details to save
  */
 exports.addTweet = function(req, res) {
-    console.log('Adding tweet: ' + JSON.stringify(req.body));
-    /*
-     user: {
-     id: ObjectId,
-     name: String,
-     username: String,
-     path: String
-     },
-     creationDate: { type: Date, default: Date.now },
-     text: String
-     */
-
-//    User.findOne({ _id: req.body.userId });
-
     var tweet = new Tweet({
         user: req.body.userId,
         creationDate: new Date(),
-        text: req.body.text.text
+        text: req.body.text
     });
-//    tweet.user.id = req.body.userId;
-//    tweet.user.name = req.body.user.name;
-//    tweet.user.path = "";
-//    tweet.text = req.body.text.text;
+
     console.log("Adding Tweet: " + JSON.stringify(tweet));
     tweet.save(function (err) {
         if (!err) {

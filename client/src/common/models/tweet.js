@@ -6,15 +6,14 @@ angular.module('model.tweet', [])
             getTweetsById: function(username) {
                 return $http.get('tweets/tweetsForUser/'+username);
             },
-            getTweetsForUserName: function (username) {
-                var request = $http.post('/users', {username: username});
-                return request.promise;
+            getTweetsByUser: function (userId) {
+                return $http.get('tweets/user/' + userId);
             },
             query: function () {
                 return $http.get('/tweets');
             },
-            save: function (message, userId) {
-                return $http.post('/tweet', {userId: userId, text: message});
+            save: function (text, userId) {
+                return $http.post('/tweet', {userId: userId, text: text});
             },
             deleteTweet: function(id) {
                 return $http.delete('/tweets/'+id);

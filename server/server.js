@@ -56,7 +56,7 @@ app.put('/users/:id', handlers.user.updateUser);
 // TWEET RESTful
 app.get('/tweets', handlers.tweet.findAll);
 app.get('/tweets/:id', handlers.tweet.findById);
-app.get('/tweets/tweetsForUser/:username', handlers.tweet.findByUserId);
+app.get('/tweets/user/:userId', handlers.tweet.findByUserId);
 app.post('/tweet', handlers.tweet.addTweet);
 app.delete('/tweets/:id', handlers.tweet.deleteTweet);
 app.put('/tweets/:id', handlers.tweet.updateTweet);

@@ -7,7 +7,7 @@ var userSchema= new Schema({
     name: { type: String, required: true },
     email: { type: String, unique: true },
     password: { type: String, required: true },
-    avatarPath: { type: String, default: 'avatarPath' }
+    avatarPath: { type: String, default: '../../assets/images/avatars/' }
 }, { collection: 'users' });
 
 

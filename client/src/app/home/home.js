@@ -11,8 +11,8 @@ angular.module('home', ['models', 'ui.bootstrap'])
     }])
 
     .controller('HomeCtrl', ['$scope', '$routeParams', '$location', '$log', 'User', 'Tweet', function ($scope, $routeParams, $location, $log, User, Tweet) {
+
         $scope.user = {};
-        $scope.userToView = {};
         $scope.tweets = [];
         $scope.updateDates =  null;
 
@@ -30,7 +30,7 @@ angular.module('home', ['models', 'ui.bootstrap'])
 
         $scope.addTweet = function (message) {
             Tweet.save(message, $routeParams.id).then(function(responce) {
-                message = "";
+                $scope.message = "";
                 getTweets();
                 updateUserTweetCount();
             });
@@ -44,21 +44,19 @@ angular.module('home', ['models', 'ui.bootstrap'])
             })
         }
 
-        $scope.viewUser = function(id) {
-            User.getUserById(id).then(function(responce) {
-                $scope.userToView = responce.data;
-                $scope.userToView.viewMessage = " by " + $scope.userToView.name;
-                Tweet.getTweetsById($scope.userToView.username).then(function(responce) {
-                    $scope.tweets = responce.data;
-                    $scope.userToView.totalTweets = responce.data.length;
-                })
-            })
+        $scope.viewUser = function(userId) {
+            $location.path('/home/' + $routeParams.id + '/user/' + userId);
         }
 
-        $scope.homeClicked = function() {
-            getUser($routeParams.id);
-            getTweets();
+        // TODO: martin - move this to app.js once we get cookies run as this will be navigation part
+        $scope.viewHome = function() {
+            $location.path('/home/' + $routeParams.id);
+        };
+
+        $scope.viewUserHome = function() {
+            $location.path('/home/' + $routeParams.id + '/user/' + $routeParams.id);
         }
+        // TODO: END
 
         //Get All tweet for time line
         function getTweets() {
@@ -68,7 +66,7 @@ angular.module('home', ['models', 'ui.bootstrap'])
                 }
                 $scope.tweets = responce.data;
                 _.each($scope.tweets, function(tweet) {
-                    if ($scope.user.username == tweet.user.username) {
+                    if ($scope.user._id == tweet.user._id) {
                         console.log("Tweet belongs to user");
                         tweet.canBeDeleted = true;
                     } else {
@@ -88,17 +86,16 @@ angular.module('home', ['models', 'ui.bootstrap'])
         function getUser(id) {
             User.getUserById(id).then(function (responce) {
                 $scope.user = responce.data;
-                Tweet.getTweetsById($scope.user.username).then(function(responce) {
+                Tweet.getTweetsByUser($scope.user._id).then(function(responce) {
                     $scope.user.totalTweets = responce.data.length;
                 });
-                $scope.userToView = responce.data;
-                $scope.userToView.viewMessage = "";
+                $scope.viewMessage = "";
             });
         }
 
         //Update the UserTweetCount
         function updateUserTweetCount() {
-            Tweet.getTweetsById($scope.user.username).then(function(responce) {
+            Tweet.getTweetsByUser($scope.user._id).then(function(responce) {
                 $scope.user.totalTweets = responce.data.length;
             });
         }

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var tweetSchema= new Schema({
-    user: [{ type: String, ref: 'User', required: true }],
+    user: { type: Schema.Types.Mixed, ref: 'User', required: true },
     creationDate: { type: Date, required: true, default: Date.now },
     text: { type: String, required: true }
 }, { collection: 'tweets' });
