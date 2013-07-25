@@ -2,17 +2,16 @@
  node_js:
    - "0.8"
    - "0.10"
-   
-before_script:
+
+ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - npm install -g grunt-cli karma@0.9.x
+  - npm install -g grunt-cli@0.1.x karma@0.9.x
   - cd server
   - npm install --quiet
   - node server.js &
   - sleep 3 # give server some time to start
   - cd ../client
   - npm install --quiet
-  
-script:
-  - grunt test
+
+ script: grunt test  
