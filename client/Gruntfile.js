@@ -1,5 +1,16 @@
 module.exports = function(grunt) {
 
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-karma');
+
+    var karmaConfig = function(configFile, customOptions) {
+        var options = { configFile: configFile, keepalive: true };
+        var travisOptions = process.env.TRAVIS && { browsers: ['Firefox'], reporters: 'dots' };
+        return grunt.util._.extend(options, customOptions, travisOptions);
+    };
+
+    // Project configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         src: {
@@ -31,11 +42,12 @@ module.exports = function(grunt) {
             },
             files:['<%= src.js %>', '<%= src.html %>', '<%= src.tpl %>', '<%= src.css %>'],
             tasks:['default','timestamp']
+        },
+        karma: {
+          unit: { options: karmaConfig('./test/config/unit.js') },
+          watch: { options: karmaConfig('./test/config/unit.js', { singleRun:false, autoWatch: true}) }
         }
     });
-
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Print a timestamp (useful for when watching)
     grunt.registerTask('timestamp', function() {
@@ -44,4 +56,5 @@ module.exports = function(grunt) {
 
     // Default task
     grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('test', ['karma:unit']);
 };
