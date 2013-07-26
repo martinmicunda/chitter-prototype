@@ -1,28 +1,32 @@
 {
-    "name": "chitter-prototype-client",
-    "version": "0.0.1",
-    "author": "Martin Micunda, Christopher Laughlin",
-    "homepage": "http://chitter-prototype.herokuapp.com/",
-    "scripts": {
-        "start": "node ./server/server.js"
-    },
-    "main": "./server/server.js",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:martinmicunda/chitter-prototype.git"
-    },
-    "bugs": {
-      "url": "https://github.com/martinmicunda/chitter-prototype/issues"
-    },
-    "dependencies": {},
-    "devDependencies": {
-        "grunt": "0.4.x",
-        "grunt-contrib-watch": "0.4.4",
-        "grunt-contrib-jshint": "0.6.0",
-        "grunt-karma": "0.5.0"
-    },
-    "license": "MIT",
-    "engines": {
-        "node": ">=0.8"
-    }
+  "name": "chitter-prototype-client",
+  "version": "0.0.1",
+  "author": "Martin Micunda, Christopher Laughlin",
+  "homepage": "http://chitter-prototype.herokuapp.com/",
+  "scripts": {
+    "start": "node ./server/server.js"
+  },
+  "main": "./server/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:martinmicunda/chitter-prototype.git"
+  },
+  "bugs": {
+    "url": "https://github.com/martinmicunda/chitter-prototype/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-contrib-watch": "0.4.4",
+    "grunt-contrib-jshint": "0.6.0",
+    "grunt-karma": "0.5.0",
+    "karma-firefox-launcher": "0.0.3",
+    "karma-chrome-launcher": "0.0.2",
+    "karma-jasmine": "0.0.3",
+    "karma-junit-reporter": "0.0.2"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8"
+  }
 }

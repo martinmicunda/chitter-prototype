@@ -68,11 +68,12 @@ module.exports = function(config) {
         // CLI --report-slower-than 500
         reportSlowerThan: 500,
 
-        //    plugins: [
-        //      'karma-jasmine',
-        //      'karma-chrome-launcher',
-        //      'karma-firefox-launcher',
-        //      'karma-junit-reporter'
-        //    ]
+        // martin - if you r getting problem with plugins run this "npm install karma-jasmine karma-firefox-launcher karma-chrome-launcher karma-junit-reporter --save-dev"
+        plugins: [
+            'karma-jasmine',
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-junit-reporter'
+        ],
     });
 };
