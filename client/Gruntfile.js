@@ -3,18 +3,22 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-html2js');
 
     // Project configuration
     grunt.initConfig({
+        distdir: 'dist',
         pkg: grunt.file.readJSON('package.json'),
         src: {
             js: ['./src/app/**/*.js'],
             html: ['./src/index.html'],
             tpl: ['./src/app/**/*.tpl.html'],
-            css: ['./src/assets/css/*.css']
+            css: ['./src/assets/css/*.css'],
+            specs: ['test/unit/*.spec.js'],
+            scenarios: ['test/e2e/*.scenario.js']
         },
         jshint: {
-            files: ['Gruntfile.js', '<%= src.angular.js %>'],
+            files: ['Gruntfile.js', '<%= src.angular.js %>', '<%= src.specs %>', '<%= src.scenarios %>'],
             options: {
                 // options here to override JSHint defaults
                 curly:true,
@@ -38,8 +42,19 @@ module.exports = function(grunt) {
             tasks:['default','timestamp']
         },
         karma: {
-          unit: { configFile: './test/config/unit.js' }
+            unit: { configFile: './test/config/unit.js' },
+            e2e: { configFile: './test/config/e2e.js' }
 //          watch: { options: karmaConfig('./test/config/unit.js', { singleRun:false, autoWatch: true}) }
+        },
+        html2js: {
+            app: {
+                options: {
+                    base: 'src/app'
+                },
+                src: ['<%= src.tpl %>'],
+                dest: '<%= distdir %>/templates/app.js',
+                module: 'templates.app'
+            }
         }
     });
 
@@ -50,5 +65,5 @@ module.exports = function(grunt) {
 
     // Default task
     grunt.registerTask('default', ['jshint']);
-    grunt.registerTask('test', ['karma:unit']);
+    grunt.registerTask('test', ['karma:unit', 'karma:e2e']);
 };

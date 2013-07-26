@@ -10,7 +10,7 @@ files= [
     'src/vendor/bootstrap/ui-bootstrap-tpls-0.4.0.js',
     'src/app/**/*.js',
     'src/common/**/*.js',
-    'test/unit/tes.js'
+    'test/unit/*.spec.js'
 ];
 
 // list of files to exclude
@@ -19,11 +19,11 @@ exclude= [];
 // use dots reporter, as travis terminal does not support escaping sequences
 // possible values: 'dots', 'progress'
 // CLI --reporters progress
-reporters= ['dots'];
+reporters= ['progress'];
 
 junitReporter= {
   // will be resolved to basePath (in the same way as files/exclude patterns)
-  outputFile: 'test_out/test-results.xml'
+  outputFile: 'test_out/unit-results.xml'
 };
 
 // web server port
