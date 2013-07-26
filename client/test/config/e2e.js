@@ -18,18 +18,23 @@ reporters= ['progress'];
 
 junitReporter= {
   // will be resolved to basePath (in the same way as files/exclude patterns)
-  outputFile: 'test_out/e2e-results.xml'
+  outputFile: 'test_out/e2e-results.xml',
+  suite: 'e2e'
 };
 
 // web server port
 // CLI --port 9876
-port= 9876;
+port= 9875;
 
 // cli runner port
 // CLI --runner-port 9009
 runnerPort = 9009;
 
 urlRoot= '/__test/';
+
+proxies = {
+  '/': 'http://localhost:3000/'
+};
 
 // enable / disable colors in the output (reporters and logs)
 // CLI --colors --no-colors

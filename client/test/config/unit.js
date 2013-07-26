@@ -23,7 +23,8 @@ reporters= ['progress'];
 
 junitReporter= {
   // will be resolved to basePath (in the same way as files/exclude patterns)
-  outputFile: 'test_out/unit-results.xml'
+  outputFile: 'test_out/unit-results.xml',
+  suite: 'unit'
 };
 
 // web server port

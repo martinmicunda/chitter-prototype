@@ -1,7 +1,7 @@
 describe('my app', function() {
 
   beforeEach(function() {
-    browser().navigateTo('http://localhost:3000/#/');
+    browser().navigateTo('/');
   });
 
   it('should be publicly accessible and default route to be /projectsinfo', function() {
