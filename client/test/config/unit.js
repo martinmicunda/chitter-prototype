@@ -72,9 +72,9 @@ singleRun= true;
 // CLI --report-slower-than 500
 reportSlowerThan= 500;
 
-//plugins= [
-//    'karma-jasmine',
-//    'karma-chrome-launcher',
-//    'karma-firefox-launcher',
-//    'karma-junit-reporter'
-//];
+plugins= [
+    'karma-jasmine',
+    'karma-chrome-launcher',
+    'karma-firefox-launcher',
+    'karma-junit-reporter'
+];
