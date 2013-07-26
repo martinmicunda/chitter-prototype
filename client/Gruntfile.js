@@ -4,12 +4,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-karma');
 
-    var karmaConfig = function(configFile, customOptions) {
-        var options = { configFile: configFile, keepalive: true };
-        var travisOptions = process.env.TRAVIS && { browsers: ['Firefox'], reporters: 'dots' };
-        return grunt.util._.extend(options, customOptions, travisOptions);
-    };
-
     // Project configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -44,7 +38,7 @@ module.exports = function(grunt) {
             tasks:['default','timestamp']
         },
         karma: {
-          unit: { options: karmaConfig('./test/config/unit.js') },
+          unit: { configFile: './test/config/unit.js' }
 //          watch: { options: karmaConfig('./test/config/unit.js', { singleRun:false, autoWatch: true}) }
         }
     });

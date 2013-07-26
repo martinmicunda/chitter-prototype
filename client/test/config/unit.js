@@ -7,8 +7,10 @@ files= [
     JASMINE_ADAPTER,
     'src/vendor/angular/angular.js',
     'src/vendor/angular-mocks/angular-mocks.js',
-    'src/**/*.js'
-//    'test/unit/*.js'
+    'src/vendor/bootstrap/ui-bootstrap-tpls-0.4.0.js',
+    'src/app/**/*.js',
+    'src/common/**/*.js',
+    'test/unit/tes.js'
 ];
 
 // list of files to exclude
@@ -17,7 +19,7 @@ exclude= [];
 // use dots reporter, as travis terminal does not support escaping sequences
 // possible values: 'dots', 'progress'
 // CLI --reporters progress
-reporters= ['progress'];
+reporters= ['dots'];
 
 junitReporter= {
   // will be resolved to basePath (in the same way as files/exclude patterns)
@@ -45,7 +47,7 @@ logLevel= LOG_INFO;
 
 // enable / disable watching file and executing tests whenever any file changes
 // CLI --auto-watch --no-auto-watch
-autoWatch= true;
+autoWatch= false;
 
 // Start these browsers, currently available:
 // - Chrome
@@ -64,15 +66,15 @@ captureTimeout= 20000;
 
 // Auto run tests on start (when browsers are captured) and exit
 // CLI --single-run --no-single-run
-singleRun= false;
+singleRun= true;
 
 // report which specs are slower than 500ms
 // CLI --report-slower-than 500
 reportSlowerThan= 500;
 
-plugins= [
-    'karma-jasmine',
-    'karma-chrome-launcher',
-    'karma-firefox-launcher',
-    'karma-junit-reporter'
-];
+//plugins= [
+//    'karma-jasmine',
+//    'karma-chrome-launcher',
+//    'karma-firefox-launcher',
+//    'karma-junit-reporter'
+//];
