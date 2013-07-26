@@ -6,7 +6,7 @@
  before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - npm install -g grunt-cli@0.1.x karma@0.9.x
+  - npm install -g grunt-cli@0.1.x karma@0.8.x
   - cd server
   - npm install --quiet
   - node server.js &
