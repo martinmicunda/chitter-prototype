@@ -6,9 +6,9 @@ files= [
     JASMINE,
     JASMINE_ADAPTER,
     'src/vendor/angular/angular.js',
-    'test/lib/angular/angular-mocks.js',
-    'src/**/*.js',
-    'test/unit/*.js'
+    'src/vendor/angular-mocks/angular-mocks.js',
+    'src/**/*.js'
+//    'test/unit/*.js'
 ];
 
 // list of files to exclude
