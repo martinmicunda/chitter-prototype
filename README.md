@@ -125,6 +125,12 @@ grunt watch
 
 ![Run Grunt watch task](/resources/images/grunt_watch.png "Run Grunt watch task")
 
+Screenshots
+------------
+![Login screenshot](/resources/images/login.png "Login screenshot")
+
+![Home screenshot](/resources/images/home.png "Home screenshot")
+
 Authors
 -------
 + [Martin Micunda](https://github.com/martinmicunda)
