@@ -34,6 +34,7 @@ Technologies Used
 ------------------
 + [AngularJS](http://angularjs.org/)
 + [NodeJS](http://nodejs.org/)
++ [ExpressJS](http://expressjs.com/) 
 + [MongoDB](http://www.mongodb.org/)
 + [HTML5](http://www.w3.org/TR/2011/WD-html5-20110525/)
 + [CSS3](http://www.w3.org/TR/2001/WD-css3-roadmap-20010523/)
