@@ -1,9 +1,24 @@
 <p ng-show="loginErrorMessage">Invalid username or password<p>
 <div class="login_wrapper">
-    <div id="sign_up" >
+    <div id="welcome" ng-show='welcome'>
         <h1 class="welcome">Welcome to Chitter!</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="button_green">Sign Up</button>
+        <button type="button" class="button_green" ng-click='showRegisterUserForm()'>Sign Up</button>
+    </div>
+    <div id="register" ng-show='registerUserForm.visible'>
+        <h1 class="welcome">Register</h1>
+        <form method="post" name="register" id="form_register" action="" novalidate ng-submit="registerNewUser()">
+            <label for="register_name">Name:</label>
+            <input id='register_name' ng-model="registerUserForm.name" class="input" ng-class="{'alert-error': loginErrorMessage}" type="text">
+            <label for="register_username">Username:</label>
+            <input id='register_username' ng-model="registerUserForm.username" class="input" ng-class="{'alert-error': loginErrorMessage}" type="text">
+            <label for="register_email">Email:</label>
+            <input id='register_email' ng-model="registerUserForm.email" class="input" ng-class="{'alert-error': loginErrorMessage}" type="text">
+            <label for="register_password">Password:</label>
+            <input id='register_password' ng-model="registerUserForm.password" class="input"  ng-class="{'alert-error': loginErrorMessage}" type="password">
+            <input type="submit" value="Login" class="button_white" style="display: inline;">
+            <button class="button_white" style="display: inline;" mg-click='hideRegisterUserForm()'>Cancel</button>
+        </form>
     </div>
     <div id="login">
         <h2 class="welcome">Login Form</h2>
@@ -13,7 +28,7 @@
             <input ng-model="password" class="input"  ng-class="{'alert-error': loginErrorMessage}" type="password" id="Password1" placeholder="Password">
             <input type="submit" value="Login" class="button_white" style="display: inline;">
             <!--<button class="button_white" style="display: inline;" >Login</button>-->
-            <a href="#">Fogot login info?</a>
+            <a href="#">Forgot login info?</a>
         </form>
     </div>
 </div>

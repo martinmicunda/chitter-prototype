@@ -61,10 +61,10 @@ exports.addUser = function(req, res) {
     console.log('Adding user: ' + JSON.stringify(req.body));
 
     var user = new User({
-        _id: 'chitter',
-        name: 'Chitter Asidua',
-        email: 'chitter@chitter.asidua',
-        password: 'chitter123',
+        _id: req.body.username,
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
     });
 
     user.save(function (err) {
