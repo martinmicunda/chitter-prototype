@@ -50,15 +50,21 @@ angular.module('login', ['models'])
 
         $scope.registerNewUser = function () {
             User.addNewUser($scope.registerUserForm.username, $scope.registerUserForm.name,
-                $scope.registerUserForm.email, $scope.registerUserForm.password).then(function(response) {
-                    if (angular.isUndefined(response.data.user)) {
-                        $scope.registerUserForm.visible = false;
-                        $scope.welcome = true;
-                        $scope.loginErrorMessage = false;
-                    } else {
-                        $scope.loginErrorMessage = true;
-                        $log.info("Failed to register new user.");
-                    }
-                })
+                    $scope.registerUserForm.email, $scope.registerUserForm.password).then(function (response) {
+                    $scope.registerUserForm.visible = false;
+                    $scope.welcome = true;
+                    $scope.loginErrorMessage = false;
+                    clearDownRegisterForm();
+                }, function (error) {
+                    $scope.loginErrorMessage = true;
+                    $log.info(error.data.error);
+                });
+        }
+
+        function clearDownRegisterForm(){
+            $scope.registerUserForm.name = '';
+            $scope.registerUserForm.username = '';
+            $scope.registerUserForm.email = '';
+            $scope.registerUserForm.password = '';
         }
     }]);

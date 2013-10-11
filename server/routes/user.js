@@ -67,14 +67,15 @@ exports.addUser = function(req, res) {
         password: req.body.password
     });
 
-    user.save(function (err) {
+    return user.save(function(err) {
         if (!err) {
-            return console.info("User created: " + user);
+            console.info("User created: " + user);
         } else {
-            return console.error(err);
+            console.error(err);
+            res.send(500, {'error': err.message});
         }
+        return res.send(user);
     });
-    return res.send(user);
 }
 
 /**
