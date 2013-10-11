@@ -61,20 +61,21 @@ exports.addUser = function(req, res) {
     console.log('Adding user: ' + JSON.stringify(req.body));
 
     var user = new User({
-        _id: 'chitter',
-        name: 'Chitter Asidua',
-        email: 'chitter@chitter.asidua',
-        password: 'chitter123',
+        _id: req.body.username,
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
     });
 
-    user.save(function (err) {
+    return user.save(function(err) {
         if (!err) {
-            return console.info("User created: " + user);
+            console.info("User created: " + user);
         } else {
-            return console.error(err);
+            console.error(err);
+            res.send(500, {'error': err.message});
         }
+        return res.send(user);
     });
-    return res.send(user);
 }
 
 /**
