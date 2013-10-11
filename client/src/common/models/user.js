@@ -12,8 +12,8 @@ angular.module('model.user', [])
             getUserById: function(id) {
                 return $http.get('/users/'+id);
             },
-            addNewUser: function () {
-                return $http.post('/users', {enail: 'test'});
+            addNewUser: function (username, name, email, password) {
+                return $http.post('/users', {username:username, name:name, email:email, password:password});
             }
         }
     }]);

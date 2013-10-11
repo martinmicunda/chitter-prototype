@@ -15,7 +15,7 @@ angular.module('login', ['models'])
 
     .controller('LoginCtrl', ['$scope', '$location', '$log', 'User', function ($scope, $location, $log, User) {
         $scope.loginErrorMessage = false;
-
+        $scope.welcome = true;
         $scope.loginUser = function () {
             var logUserIn = User.logUserIn($scope.username, $scope.password);
 
@@ -27,5 +27,44 @@ angular.module('login', ['models'])
                     $location.path('/home/' + response.data.user._id);
                 }
             });
+        };
+
+        $scope.registerUserForm = {
+            name: '',
+            username: '',
+            email: '',
+            password: '',
+            visible: false
+        };
+
+        $scope.showRegisterUserForm = function() {
+            $scope.welcome = false;
+            $scope.registerUserForm.visible = true;
+        };
+
+        $scope.hideRegisterUserForm = function() {
+            $scope.welcome = true;
+            $scope.registerUserForm.visible = false;
+        }
+
+
+        $scope.registerNewUser = function () {
+            User.addNewUser($scope.registerUserForm.username, $scope.registerUserForm.name,
+                    $scope.registerUserForm.email, $scope.registerUserForm.password).then(function (response) {
+                    $scope.registerUserForm.visible = false;
+                    $scope.welcome = true;
+                    $scope.loginErrorMessage = false;
+                    clearDownRegisterForm();
+                }, function (error) {
+                    $scope.loginErrorMessage = true;
+                    $log.info(error.data.error);
+                });
+        }
+
+        function clearDownRegisterForm(){
+            $scope.registerUserForm.name = '';
+            $scope.registerUserForm.username = '';
+            $scope.registerUserForm.email = '';
+            $scope.registerUserForm.password = '';
         }
     }]);

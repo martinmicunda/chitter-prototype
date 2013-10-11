@@ -53,17 +53,30 @@ a {
 .login_wrapper  input {
     display: block;
 }
-#sign_up {
+#welcome {
     width: 315px;
     padding: 15px;
     float: left;
 }
-#sign_up p {
+#welcome p {
     display: inline-block;
     padding-top: 16px;
     color: #777777;
     text-align: justify;
 }
+
+#register {
+    width: 315px;
+    padding: 15px;
+    float: left;
+}
+#register p {
+    display: inline-block;
+    padding-top: 16px;
+    color: #777777;
+    text-align: justify;
+}
+
 #login{
     background: url("../images/bg-login.png") repeat scroll 0 0 padding-box #1B1B1B;
     border-radius: 5px;
@@ -102,7 +115,7 @@ h2.welcome {color: #ffffff;}
 #form_login a:hover {
     color: #FEFEFE;
 }
-input.input {
+#form_login input.input {
     background-color:#272828;
     border:1px solid #181818;
     border-radius:5px;
@@ -119,7 +132,51 @@ input.input {
     text-shadow:0 1px 0 #000;
     width:207px;
 }
-input:focus {
+#form_login input:focus {
+    outline:none;
+    background-color:#fafafa;
+    color:black;
+    text-shadow:none;
+    -webkit-box-shadow: 0 0 5px #3eabff, inset 0 1px 1px #000;
+    -webkit-transition:background-color .5s ease-in;
+    -moz-transition:color 2s ease-in;
+    -o-transition:color .3s ease-in;
+    transition:color .3s ease-in;
+}
+
+#form_register{
+    padding-top: 16px;
+    display: inline-block;
+}
+#form_register input.input {
+    margin-bottom:15px;
+    margin-top: 0px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border:1px solid #181818;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    box-shadow: 0 1px 2px rgba(255,255,255,.1), inset 0 1px 2px rgba(0,0,0,.4);
+    -moz-box-shadow: 0 1px 2px rgba(255,255,255,.1), inset 0 1px 2px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 1px 2px rgba(255,255,255,.1), inset 0 1px 2px rgba(0,0,0,.4);
+    color: #000000;
+    font: normal 11px Helvetica, Arial, sans-serif;
+    height:29px;
+    margin:10px 3px;
+    text-indent:7px;
+    width:207px;
+}
+#form_register a {
+    display: inline;
+    float: right;
+    color: #94b901;
+    margin-top: 6px;
+    text-decoration: none;
+}
+#form_register a:hover {
+    color: #FEFEFE;
+}
+#form_register input:focus {
     outline:none;
     background-color:#fafafa;
     color:black;
