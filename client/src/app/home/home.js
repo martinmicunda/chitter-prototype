@@ -75,11 +75,9 @@ angular.module('home', ['models', 'ui.bootstrap'])
                     } else {
                         tweet.canBeDeleted = false;
                     }
-                    tweet.creationDate = formatTweetDate(tweet.creationDate);
                 });
                 $scope.updateDates = setInterval(function() {
                     _.each($scope.tweets, function (tweet) {
-                        tweet.creationDate = formatTweetDate(tweet.creationDate);
                     });
                 },5000);
             })
@@ -102,9 +100,4 @@ angular.module('home', ['models', 'ui.bootstrap'])
                 $scope.user.totalTweets = responce.data.length;
             });
         }
-
-        function formatTweetDate(date) {
-            return prettyDate(date);
-        }
-
     }]);

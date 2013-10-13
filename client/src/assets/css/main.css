@@ -1,6 +1,7 @@
 /* Will be compiled down to a single stylesheet with your sass files */
-@import "reset.css";
-@import "global.css";
+/*@import "reset.css";*/
+@import "bootstrap.css";
+/*@import "global.css";*/
 /*Dev environment*/
 @import "chitter.css";
 /*Production environment*/
