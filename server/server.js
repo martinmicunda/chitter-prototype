@@ -62,9 +62,18 @@ app.delete('/tweets/:id', handlers.tweet.deleteTweet);
 app.put('/tweets/:id', handlers.tweet.updateTweet);
 
 // Start up the server on the port specified in the config
-server.listen(config.server.listenPort, 'localhost', 511, function() {
-    // Once the server is listening we automatically open up a browser
-    var open = require('open');
-    open('http://localhost:' + config.server.listenPort + '/');
+app.configure('development', function(){
+    server.listen(config.server.listenPort, 'localhost', 511, function() {
+        // Once the server is listening we automatically open up a browser
+        var open = require('open');
+        open('http://localhost:' + config.server.listenPort + '/');
+    });
+    console.info('Chitter Server - listening on port: ' + config.server.listenPort);
 });
-console.info('Chitter Server - listening on port: ' + config.server.listenPort);
+app.configure('production', function(){
+    var port = process.env.PORT || 5000;
+    app.listen(port, function() {
+        console.info('Chitter Server - listening on port: ' + config.server.listenPort);
+    });
+});
+
