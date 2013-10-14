@@ -56,43 +56,21 @@
     <div class="clear"></div>
 </section>
 
-<!--<div modal="showModal">-->
-    <!--<div class="modal-header">-->
-        <!--<h3>What's happening?</h3>-->
-    <!--</div>-->
-    <!--<div class="modal-body">-->
-        <!--<textarea id="tweetMessage" class="modal-tweet-box" ng-model="text"></textarea>-->
-        <!--<br />-->
-    <!--</div>-->
-    <!--<div class="modal-footer">-->
-        <!--<button class="button_green" ng-click="addTweet(text)">Tweet</button>-->
-        <!--<button class="btn btn-primary" ng-click="ok()">OK</button>-->
-        <!--<button class="btn btn-warning" ng-click="cancel()">Cancel</button>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div class="modal modal-content" modal="showModal">-->
-    <!--<form method="POST" action="" novalidate>-->
-        <!--&lt;!&ndash;<input type="hidden" ng-model="tweet.user.id" ng-init="tweet.user.id='507f1f77bcf86cd799439011'" value="507f1f77bcf86cd799439011">&ndash;&gt;-->
-        <!--&lt;!&ndash;TODO: this information should be already on server as we are sending user_id&ndash;&gt;-->
-        <!--&lt;!&ndash;----------------------------------------------------------------------------&ndash;&gt;-->
-        <!--<button class="modal-close" type="button" ng-click="cancel()">-->
-            <!--<span class="icon close-medium">-->
-                <!--<span class="visuallyhidden">Close</span>-->
-            <!--</span>-->
-        <!--</button>-->
-        <!--<div class="modal-header">-->
-            <!--<h3>What's happening?</h3>-->
-        <!--</div>-->
-        <!--<div class="modal-body">-->
-
-        <!--<textarea id="tweetMessage" class="modal-tweet-box" ng-model="text"></textarea>-->
-        <!--<br />-->
-        <!--<div class="modal-footer">-->
-            <!--&lt;!&ndash;<span class="tweet-counter">140</span>&ndash;&gt;-->
-            <!--<button class="button_green" ng-click="addTweet(text)">Tweet</button>-->
-        <!--</div>-->
-        <!--</div>-->
-    <!--</form>-->
-<!--</div>-->
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+              <h4 class="modal-title">What's happening?</h4>
+            </div>
+            <div class="modal-body">
+                <textarea id="tweetMessage" class="modal-tweet-box" ng-model="text"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="ok(text)">OK</button>
+                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</script>
 

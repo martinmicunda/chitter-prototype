@@ -10,7 +10,7 @@ angular.module('home', ['models', 'ui.bootstrap'])
             })
     }])
 
-    .controller('HomeCtrl', ['$scope', '$routeParams', '$location', '$log', 'User', 'Tweet', function ($scope, $routeParams, $location, $log, User, Tweet) {
+    .controller('HomeCtrl', ['$scope', '$routeParams', '$location', '$log', 'User', 'Tweet', '$modal', function ($scope, $routeParams, $location, $log, User, Tweet, $modal) {
 
         $scope.user = {};
         $scope.tweets = [];
@@ -19,16 +19,16 @@ angular.module('home', ['models', 'ui.bootstrap'])
         getUser($routeParams.id);
         getTweets();
 
-//        $scope.addUser = function () {
-//            User.addNewUser();
-//        }
-        // Modal Form
         $scope.open = function () {
-            $scope.showModal = true;
-        };
-
-        $scope.cancel = function () {
-            $scope.showModal = false;
+            var modalInstance = $modal.open({
+                templateUrl: 'myModalContent.html',
+                controller: ModalInstanceCtrl,
+                resolve: {
+                    addTweet: function() {
+                        return $scope.addTweet;
+                    }
+                }
+            });
         };
 
         $scope.addTweet = function (message) {
@@ -37,7 +37,6 @@ angular.module('home', ['models', 'ui.bootstrap'])
                 getTweets();
                 updateUserTweetCount();
             });
-            $scope.showModal = false;
         }
 
         $scope.deleteTweet = function(id) {
@@ -101,3 +100,14 @@ angular.module('home', ['models', 'ui.bootstrap'])
             });
         }
     }]);
+
+// Todo: (martin) this need to improve as dialog is close before change is saved
+var ModalInstanceCtrl = function ($scope, $modalInstance, addTweet) {
+    $scope.ok = function (message) {
+        $modalInstance.close(addTweet(message));
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+};

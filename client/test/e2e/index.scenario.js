@@ -9,6 +9,6 @@ describe('my app', function() {
     });
 
     it("should have tag h1 with text 'Welcome to Chitter!'", function() {
-        expect(element("#welcome").text()).toEqual("\n        Welcome to Chitter!\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n        Sign Up\n    ");
+        expect(element("h2").text()).toEqual("Sign up for Chitter");
     });
 });

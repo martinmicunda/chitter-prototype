@@ -10,7 +10,7 @@ angular.module('user-home', ['models'])
             })
     }])
 
-    .controller('UserCtrl', ['$scope', '$routeParams', '$location', '$log', 'User', 'Tweet', function ($scope, $routeParams, $location, $log, User, Tweet) {
+    .controller('UserCtrl', ['$scope', '$routeParams', '$location', '$log', 'User', 'Tweet', '$modal', function ($scope, $routeParams, $location, $log, User, Tweet, $modal) {
 
         $scope.user = {};
         $scope.tweets = [];
@@ -20,11 +20,15 @@ angular.module('user-home', ['models'])
 
         // Modal Form
         $scope.open = function () {
-            $scope.showModal = true;
-        };
-
-        $scope.cancel = function () {
-            $scope.showModal = false;
+            var modalInstance = $modal.open({
+                templateUrl: 'myModalContent.html',
+                controller: ModalInstanceCtrl,
+                resolve: {
+                    addTweet: function() {
+                        return $scope.addTweet;
+                    }
+                }
+            });
         };
 
         $scope.addTweet = function (message) {
