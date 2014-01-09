@@ -136,3 +136,7 @@ Authors
 + [Martin Micunda](https://github.com/martinmicunda)
 + [Christopher Laughlin](https://github.com/chrislaughlin)
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/martinmicunda/chitter-prototype/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
