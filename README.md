@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/martinmicunda/chitter-prototype.png)](http://travis-ci.org/martinmicunda/chitter-prototype)
+[![Build Status](https://secure.travis-ci.org/martinmicunda/chitter-prototype.png)](http://travis-ci.org/martinmicunda/chitter-prototype) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/martinmicunda/chitter-prototype/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 Chitter Prototype
 =================
@@ -136,7 +136,4 @@ Authors
 + [Martin Micunda](https://github.com/martinmicunda)
 + [Christopher Laughlin](https://github.com/chrislaughlin)
 
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/martinmicunda/chitter-prototype/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
