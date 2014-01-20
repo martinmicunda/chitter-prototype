@@ -32,15 +32,25 @@ Development Principles
 
 Technologies Used
 ------------------
-+ [AngularJS](http://angularjs.org/)
-+ [NodeJS](http://nodejs.org/)
-+ [ExpressJS](http://expressjs.com/) 
-+ [MongoDB](http://www.mongodb.org/)
-+ [HTML5](http://www.w3.org/TR/2011/WD-html5-20110525/)
-+ [CSS3](http://www.w3.org/TR/2001/WD-css3-roadmap-20010523/)
-+ [Bootstrap 3](http://getbootstrap.com/)
-+ [underscoreJS](http://underscorejs.org/) 
-+ [Grunt](http://gruntjs.com/)
+* **Client Side:**
+    * [AngularJS](http://angularjs.org/)
+    * [HTML5](http://www.w3.org/TR/2011/WD-html5-20110525/)
+    * [CSS3](http://www.w3.org/TR/2001/WD-css3-roadmap-20010523/)
+    * [Bootstrap 3](http://getbootstrap.com/)
+    * [underscoreJS](http://underscorejs.org/) 
+
+* **Server Side:**
+    * [NodeJS](http://nodejs.org/)
+    * [ExpressJS](http://expressjs.com/) 
+    * [MongoDB](http://www.mongodb.org/)
+
+* **Development & Deployment:**
+    * [Grunt](http://gruntjs.com/)
+    * [Travis CI](https://travis-ci.org/)
+
+* **Test:**
+    * [Jasmine](http://pivotal.github.io/jasmine/)
+    * [Karma](http://karma-runner.github.io/)
 
 Architecture Diagram
 --------------------
