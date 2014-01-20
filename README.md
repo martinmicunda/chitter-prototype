@@ -55,7 +55,7 @@ Technologies Used
 Architecture Diagram
 --------------------
 
-![Chitter Architecture Diagram](/resources/diagrams/architecture_diagram.png "Chitter Architecture Diagram")
+![Chitter Architecture Diagram](/_resources/diagrams/architecture_diagram.png "Chitter Architecture Diagram")
 
 Installation
 ----------------------
@@ -116,7 +116,7 @@ There are two options how to run application (command line or Intellij IDEA)
 ####From Intellij IDEA
 Install Node plugin for your Intellij and then go to Edit -> Edit Configurations and set details as it show below 
 
-![Run Chitter Server from Intellij IDEA](/resources/images/node_server.png "Run Chitter Server from Intellij IDEA")
+![Run Chitter Server from Intellij IDEA](/_resources/images/node_server.png "Run Chitter Server from Intellij IDEA")
 
 Development
 ----------------------
@@ -133,13 +133,13 @@ grunt watch
 
 ####From Intellij IDEA
 
-![Run Grunt watch task](/resources/images/grunt_watch.png "Run Grunt watch task")
+![Run Grunt watch task](/_resources/images/grunt_watch.png "Run Grunt watch task")
 
 Screenshots
 ------------
-![Login screenshot](/resources/images/login.png "Login screenshot")
+![Login screenshot](/_resources/images/login.png "Login screenshot")
 
-![Home screenshot](/resources/images/home.png "Home screenshot")
+![Home screenshot](/_resources/images/home.png "Home screenshot")
 
 Authors
 -------
