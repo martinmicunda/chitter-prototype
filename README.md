@@ -143,7 +143,7 @@ Screenshots
 
 Authors
 -------
-+ [Martin Micunda](https://github.com/martinmicunda)
++ [ ![Martin Micunda avatar] (http://www.gravatar.com/avatar/5bce24c9beed55aaee9feca545defb8e.png?s=60) Martin Micunda](https://github.com/martinmicunda)
 + [Christopher Laughlin](https://github.com/chrislaughlin)
 
 ## The MIT License (MIT)
