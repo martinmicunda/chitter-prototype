@@ -143,9 +143,9 @@ Screenshots
 
 Authors
 -------
-[ ![Martin Micunda avatar] (http://www.gravatar.com/avatar/5bce24c9beed55aaee9feca545defb8e.png?s=60) Martin Micunda](https://github.com/martinmicunda)
-
-[ ![Christopher Laughlin avatar] (http://www.gravatar.com/avatar/2ff062148633bce06aa972be0ff1c244.png?s=60) Christopher Laughlin](https://github.com/chrislaughlin)
+[![Martin Micunda] (http://www.gravatar.com/avatar/5bce24c9beed55aaee9feca545defb8e.png?s=144)](https://github.com/martinmicunda) | [![Christopher Laughlin] (http://www.gravatar.com/avatar/2ff062148633bce06aa972be0ff1c244.png?s=144)](https://github.com/chrislaughlin)
+:---:|:---:
+[Martin Micunda] (https://github.com/martinmicunda) | [Christopher Laughlin] (https://github.com/chrislaughlin)
 
 ## License
 
