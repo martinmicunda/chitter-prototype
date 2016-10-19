@@ -49,7 +49,7 @@ Technologies Used
     * [Travis CI](https://travis-ci.org/)
 
 * **Test:**
-    * [Jasmine](http://pivotal.github.io/jasmine/)
+    * [Jasmine](https://jasmine.github.io/)
     * [Karma](http://karma-runner.github.io/)
 
 Architecture Diagram
